@@ -19,7 +19,7 @@
                     <li><a class="getstarted scrollto" href="<?php base_url() ?>/login">Masuk</a></li>
                 </ul>
                 <i class="bi bi-list mobile-nav-toggle"></i>
-            </nav><!-- .navbar -->
+            </nav>
 
         </div>
     </header><!-- End Header -->

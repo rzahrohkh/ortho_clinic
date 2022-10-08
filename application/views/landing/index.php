@@ -44,7 +44,7 @@
                     </div>
                 </div>
 
-            </div><!-- End Feature Icons -->
+            </div><!
 
 
         </div>
@@ -283,6 +283,6 @@
 
         </div>
 
-    </section><!-- End Contact Section -->
+    </section><!-- End Hubungi Section -->
 
 </main><!-- End #main -->
