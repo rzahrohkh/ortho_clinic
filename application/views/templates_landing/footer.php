@@ -12,10 +12,9 @@
                         <p>Dengan menggunakan aplikasi ini, dapat
                             mempermudah aktivitas anda di rumah .</p>
                         <div class="social-links mt-3">
-                            <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
-                            <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
-                            <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
-                            <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
+                            <?php foreach ($contacts as $contact) : ?>
+                                <a href="<?= $contact['value_contact'] ?>" class="<?= $contact['class'] ?>"><i class="<?= $contact['icon_contact'] ?>"></i></a>
+                            <?php endforeach; ?>
                         </div>
                     </div>
 
@@ -34,13 +33,13 @@
                     <div class="col-lg-3 col-md-12 footer-contact text-center text-md-start">
                         <h4>Alamat</h4>
                         <p>
-                            Jl. Jambangan No. 55, Karah, Kec.
-                            Jambangan, <br>
+                            <?= $alamat['value_contact'] ?>
                             Kota Surabaya,
-                            Jawa Timur 60232<br>
+                            Jawa Timur 60232
                             <br>
-                            <strong>Telepon:</strong> 0812-3498-6636<br>
-                            <strong>Email:</strong> orthoclinic@clinic.edu<br>
+                            <br>
+                            <strong>Telepon:</strong> <?= $telepon['value_contact'] ?><br>
+                            <strong>Email:</strong> <?= $email['value_contact'] ?><br>
                         </p>
 
                     </div>

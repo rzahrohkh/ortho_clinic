@@ -4,9 +4,8 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-6 d-flex flex-column justify-content-center">
-                <h1 data-aos="fade-up">SELAMAT DATANG</h1>
-                <h2 data-aos="fade-up" data-aos-delay="400">Di Sistem Informasi Discharge Planning</h2>
-                <h2 data-aos="fade-up" data-aos-delay="400">Klinik Umum dan Gigi Dr.Indra Diawan</h2>
+                <h1 data-aos="fade-up"><?= $title_landing['description_section'] ?></h1>
+                <h2 data-aos="fade-up" data-aos-delay="400"><?= $sub_title_landing['description_section'] ?></h2>
             </div>
             <div class="col-lg-6 hero-img" data-aos="zoom-out" data-aos-delay="200">
                 <img src="<?php base_url() ?>asset_landing/img/beranda.png" class="img-fluid" alt="">
@@ -225,8 +224,7 @@
                             <div class="info-box">
                                 <i class="bi bi-geo-alt"></i>
                                 <h3>Alamat</h3>
-                                <p>Jl. Jambangan No. 55, Karah, Kec.
-                                    Jambangan, <br>Kota Surabaya,
+                                <p><?= $alamat['value_contact'] ?> <br>Kota Surabaya,
                                     Jawa Timur 60232,</p>
                             </div>
                         </div>
@@ -234,7 +232,7 @@
                             <div class="info-box">
                                 <i class="bi bi-telephone"></i>
                                 <h3>Telepon</h3>
-                                <p>0812-3498-6636
+                                <p><?= $telepon['value_contact'] ?>
                                     <br>(Panggilan Darurat)
                                 </p>
                             </div>
@@ -243,16 +241,14 @@
                             <div class="info-box">
                                 <i class="bi bi-envelope"></i>
                                 <h3>Email</h3>
-                                <p>orthocare@clinic.edu<br>orthoclinic@clinic.edu</p>
+                                <p><?= $email['value_contact'] ?></p>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="info-box">
                                 <i class="bi bi-clock"></i>
                                 <h3>Jam Operasional</h3>
-                                <p>Senin - Sabtu</p>
-                                <p>Pukul 08.00 - 12.00</p>
-                                <p>Pukul 17:00 - 21:00</p>
+                                <?= $profileClinic['operational_hour'] ?>
                             </div>
                         </div>
                     </div>
@@ -262,17 +258,7 @@
                 <div class="col-lg-6">
                     <form action="forms/contact.php" method="post" class="php-email-form">
                         <h4 class="d-flex justify-content-center">Customer Service</h4><br>
-                        <ol type="1">
-                            <li style="text-align: left">Menerima dan melayani kebutuhan informasi pelayanan dan jadwal praktik dokter
-                                Klinik umum dn gigi Dr. Indra Diawan.</li>
-                            <li style="text-align: left">Melayani pendaftaran dan booking online untuk pelayanan gigi terpadu dan anak
-                                umum melalui chat WhatsApp (WA) 0812-3498-6636 setiap Senin – Sabtu
-                                Pukul 08.00-20.00
-                            </li>
-                            <li style="text-align: left">Pendaftaran dan booking online dapat dilayani pada H-1 perjanjian.</li>
-                            <li style="text-align: left">Pendaftaran dan booking online berlaku untuk maksimal H+7 / selama 1 minggu
-                                ke depan.</li>
-                        </ol>
+                        <?= $profileClinic['description_profile'] ?>
                     </form>
 
                 </div>
