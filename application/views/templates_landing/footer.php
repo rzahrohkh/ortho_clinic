@@ -32,7 +32,7 @@
                     </div>
 
                     <div class="col-lg-3 col-md-12 footer-contact text-center text-md-start">
-                        <h4>Telepon</h4>
+                        <h4>Alamat</h4>
                         <p>
                             Jl. Jambangan No. 55, Karah, Kec.
                             Jambangan, <br>
@@ -54,7 +54,9 @@
                 &copy; Copyright <strong><span>OrthoClinic</span></strong>. All Rights Reserved
             </div>
             <div class="credits">
-                Designed by <a href="https://bootstrapmade.com/">rzahrohk</a>
+                Disusun Oleh <a href="https://www.linkedin.com/in/roudlotuz-zahro-khoiriyah/">Roudlotuz Zahroh Khoiriyah</a>
+                <br>
+                <a>Untuk Memenuhi Tugas Akhir Skripsi</a>
             </div>
         </div>
     </footer><!-- End Footer -->

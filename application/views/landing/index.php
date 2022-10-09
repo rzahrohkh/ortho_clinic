@@ -44,10 +44,8 @@
                     </div>
                 </div>
 
-            </div><!
-
-
-        </div>
+            </div>
+            <! </div>
 
     </section><!-- End Profil Section  -->
 
@@ -263,7 +261,7 @@
 
                 <div class="col-lg-6">
                     <form action="forms/contact.php" method="post" class="php-email-form">
-                        <h4 class="d-flex justify-content-center">CUSTOMER CARE SERVISE</h4><br>
+                        <h4 class="d-flex justify-content-center">Customer Service</h4><br>
                         <ol type="1">
                             <li style="text-align: left">Menerima dan melayani kebutuhan informasi pelayanan dan jadwal praktik dokter
                                 Klinik umum dn gigi Dr. Indra Diawan.</li>
