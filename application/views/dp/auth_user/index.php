@@ -3,13 +3,17 @@
     <div class="row h-100">
         <div class="col-lg-5 col-12">
             <div id="auth-left">
-                <div class="auth-logo">
-                    <a href="index.html"><img width="150px" height="300px" src="<?php base_url() ?>assets/images/logo/logo.svg" alt="Logo"></a>
+                <div class="form-control-icon mb-3">
+                    <a href="<?php base_url() ?>landing" class="bi bi-arrow-left" style="font-size: 1.2em;"> Kembali</a>
+                </div>
+                <div class="auth-logo mb-5">
+                    <a href="<?php base_url() ?>">
+                        <img style="width:50%;height:50%;" src="<?php base_url() ?>assets/images/logo/logo.svg" alt="Logo"></a>
                 </div>
                 <h1 class="auth-title">Masuk</h1>
                 <p class="auth-subtitle mb-5">Silahkan masuk terlebih dahulu.</p>
 
-                <form action="index.html">
+                <form action="<?php base_url() ?>">
                     <div class="form-group position-relative has-icon-left mb-4">
                         <input type="text" class="form-control form-control-xl" placeholder="Username">
                         <div class="form-control-icon">
