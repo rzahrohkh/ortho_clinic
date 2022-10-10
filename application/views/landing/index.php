@@ -13,11 +13,10 @@
         </div>
     </div>
 
-</section><!-- End Beranda -->
+</section>
+<!-- End Beranda -->
 
 <main id="main">
-
-
 
     <!-- ======= Profil Section ======= -->
     <section id="profil" class="features">
@@ -43,9 +42,10 @@
                 </div>
 
             </div>
-            <! </div>
+        </div>
 
-    </section><!-- End Profil Section  -->
+    </section>
+    <!-- End Profil Section  -->
 
     <!-- ======= Pelayanan Section ======= -->
     <section id="pelayanan" class="services">
@@ -71,7 +71,8 @@
 
         </div>
 
-    </section><!-- End Pelayanan Section -->>
+    </section>
+    <!-- End Pelayanan Section -->>
 
     <!-- ======= Dokter Section ======= -->
     <section id="dokter" class="team">
@@ -108,7 +109,8 @@
 
         </div>
 
-    </section><!-- End Dokter Section -->
+    </section>
+    <!-- End Dokter Section -->
 
     <!-- ======= Hubungi Section ======= -->
     <section id="hubungi" class="contact">
@@ -171,6 +173,51 @@
 
         </div>
 
-    </section><!-- End Hubungi Section -->
+    </section>
+    <!-- End Hubungi Section -->
+
+    <!-- ======= Jadwal Section ======= -->
+    <section id="jadwal" class="features">
+
+        <div class="container" data-aos="fade-up">
+
+            <header class="section-header">
+
+                <p>Jadwal Praktek Dokter</p>
+            </header>
+
+            <div class="row" data-aos="fade-up">
+
+                <div class="row">
+                    <div class="table-responsive">
+                        <table class="table table-lg">
+                            <thead>
+                                <tr>
+                                    <th>Senin</th>
+                                    <th>Selasa</th>
+                                    <th>Rabu</th>
+                                    <th>Kamis</th>
+                                    <th>Jumat</th>
+                                    <th>Sabtu</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="text-bold-500">Isi Senin</td>
+                                    <td>Isi Selasa</td>
+                                    <td class="text-bold-500">Isi Rabu</td>
+                                    <td class="text-bold-500">Isi Kamis</td>
+                                    <td class="text-bold-500">Isi Jumat</td>
+                                    <td class="text-bold-500">Isi Sabtu</td>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </section>
+    <!-- End Profil Section  -->
 
 </main><!-- End #main -->
