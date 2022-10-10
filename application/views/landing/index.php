@@ -38,8 +38,7 @@
                     </div>
 
                     <div class="col-lg-6 d-flex flex-column justify-content-center">
-                        <h5 data-aos="fade-up" data-aos-delay="400">Klinik umum dan gigi Dr. Indra Diawan merupakan
-                            unit pelayanan kesehatan klinik gigi yang ada di Kota Surabaya yang memberikan Discharge Planning bagi pasien Orthodontik dengan cara melakukan pemantauan pasien serta penjadwalan pasien untuk melakukan kontrol ulang setelah melakukan perawatan gigi. Klinik umum dan gigi Dr. Indra Diawan berusaha memberikan pelayanan kesehatan secara profesionalisme dan meningkatkan mutu secara terus - menerus. Sehingga memaksa pihak Klinik untuk selalu memperbaiki kinerjanya, agar dapat menambah kepercayaan masyarakat.</h5>
+                        <h5 data-aos="fade-up" data-aos-delay="400"><?= $profileClinic['description_profile'] ?></h5>
                     </div>
                 </div>
 
@@ -258,7 +257,7 @@
                 <div class="col-lg-6">
                     <form action="forms/contact.php" method="post" class="php-email-form">
                         <h4 class="d-flex justify-content-center">Customer Service</h4><br>
-                        <?= $profileClinic['description_profile'] ?>
+                        <?= $profileClinic['customer_service'] ?>
                     </form>
 
                 </div>
