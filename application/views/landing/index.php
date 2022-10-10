@@ -57,55 +57,16 @@
             </header>
 
             <div class="row gy-4">
-
-                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
-                    <div class="service-box blue">
-                        <i class="ri-discuss-line icon"></i>
-                        <h3>Pelayanan Kesehatan Gigi Anak</h3>
-                        <h4>Melayani:</h4>
-                        <ol type="1">
-                            <li style="text-align: left">Konsultasi tentang merawat gigi anak dan memastikan
-                                gigi permanen anak tumbuh dan berkembang dengan baik.</li>
-                            <li style="text-align: left">Pelayanan edukasi orang tua untuk menjaga dan
-                                memantau pertumbuhan gigi anak.</li>
-                            <li style="text-align: left">Mengobati maslah gigi dan mulut anak sebelum kondisinya
-                                bertambah parah.</li>
-                        </ol>
+                <?php foreach ($serviceClinic as $serviceClinic) : ?>
+                    <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="<?= $serviceClinic['data_aos_delay'] ?>">
+                        <div class="service-box <?= $serviceClinic['color'] ?>">
+                            <i class="<?= $serviceClinic['icon_service_clinic'] ?>"></i>
+                            <h3><?= $serviceClinic['name_service_clinic'] ?></h3>
+                            <h4>Melayani:</h4>
+                            <?= $serviceClinic['description_service_clinic'] ?>
+                        </div>
                     </div>
-                </div>
-
-                <div class=" col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-                    <div class="service-box orange">
-                        <i class="ri-discuss-line icon"></i>
-                        <h3>Pelayanan Kesehatan Gigi Terpadu</h3>
-                        <h4>Melayani:</h4>
-                        <ol type="1">
-                            <li style="text-align: left">Konsultasi gigi dan mulut bersifat umum.</li>
-                            <li style="text-align: left">Pelayanan kesehatan gigi dasar maupun lanjutan seperti
-                                pembersihan karang gigi (scalling), penambalan gigi,
-                                pencabutan gigi, maupun tindakan lainya.</li>
-                            <li style="text-align: left"> Pembuatan gigi tiruan, pembuatan kawat gigi, gigi lepasan,
-                                maupun tindakan lainya.</li>
-                        </ol>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
-                    <div class="service-box green">
-                        <i class="ri-discuss-line icon"></i>
-                        <h3>Pelayanan Ortodonti</h3>
-                        <h4>Melayani:</h4>
-                        <ol type="1">
-                            <li style="text-align: left">Perawatan ortodonti dengan menggunakan braces
-                                (kawat gigi) cekat.</li>
-                            <li style="text-align: left">Perawatan ortodonti dengan menggunakan braces
-                                (kawat gigi) lepasan.</li>
-                            <li style="text-align: left"> Perawatan ortodonti dengan menggunakan braces
-                                (kawat gigi) fungsional.</li>
-                        </ol>
-                    </div>
-                </div>
-
+                <?php endforeach; ?>
             </div>
 
         </div>

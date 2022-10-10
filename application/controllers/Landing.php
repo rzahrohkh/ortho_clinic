@@ -10,6 +10,7 @@ class Landing extends CI_Controller
         $this->load->model('Contact_model');
         $this->load->model('Section_model');
         $this->load->model('ProfileClinic_model');
+        $this->load->model('ServiceClinic_model');
     }
 
     public function index()
@@ -22,6 +23,7 @@ class Landing extends CI_Controller
         $data['title_landing'] = $this->Section_model->getSectionByType('title_landing');
         $data['sub_title_landing'] = $this->Section_model->getSectionByType('sub_title_landing');
         $data['profileClinic'] = $this->ProfileClinic_model->getProfileClinic()[0];
+        $data['serviceClinic'] = $this->ServiceClinic_model->getServiceClinic();
         $this->load->view('templates_landing/header', $data);
         $this->load->view('templates_landing/navbar', $data);
         $this->load->view('landing/index', $data);
