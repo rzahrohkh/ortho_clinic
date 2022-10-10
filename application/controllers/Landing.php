@@ -11,6 +11,7 @@ class Landing extends CI_Controller
         $this->load->model('Section_model');
         $this->load->model('ProfileClinic_model');
         $this->load->model('ServiceClinic_model');
+        $this->load->model('Doctor_model');
     }
 
     public function index()
@@ -24,6 +25,7 @@ class Landing extends CI_Controller
         $data['sub_title_landing'] = $this->Section_model->getSectionByType('sub_title_landing');
         $data['profileClinic'] = $this->ProfileClinic_model->getProfileClinic()[0];
         $data['serviceClinic'] = $this->ServiceClinic_model->getServiceClinic();
+        $data['doctor'] = $this->Doctor_model->getDoctor();
         $this->load->view('templates_landing/header', $data);
         $this->load->view('templates_landing/navbar', $data);
         $this->load->view('landing/index', $data);
