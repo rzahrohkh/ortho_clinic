@@ -202,13 +202,43 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td class="text-bold-500">Isi Senin</td>
-                                    <td>Isi Selasa</td>
-                                    <td class="text-bold-500">Isi Rabu</td>
-                                    <td class="text-bold-500">Isi Kamis</td>
-                                    <td class="text-bold-500">Isi Jumat</td>
-                                    <td class="text-bold-500">Isi Sabtu</td>
+                                <?php
+                                $hours = ['Pagi', 'Siang', 'Malam'];
+                                ?>
+                                <?php foreach ($hours as $hour) : ?>
+                                    <?php
+                                    $jadwal = $this->db->query("SELECT
+                                                * 
+                                            FROM
+                                                clinical_practice_schedule
+                                                NATURAL JOIN worker_position_clinic
+                                                NATURAL join clinic_opening_hours
+                                                WHERE description_opening_hours ='$hour'
+                                                ORDER BY day")->row_array()
+                                    ?>
+
+                                    <tr>
+                                        <td class="text-bold-500"><?= $jadwal['position'] ?>
+                                            <br><?= $jadwal['opening_hours'] ?>
+                                        </td>
+                                        <td class="text-bold-500"><?= $jadwal['position'] ?>
+                                            <br><?= $jadwal['opening_hours'] ?>
+                                        </td>
+                                        <td class="text-bold-500"><?= $jadwal['position'] ?>
+                                            <br><?= $jadwal['opening_hours'] ?>
+                                        </td>
+                                        <td class="text-bold-500"><?= $jadwal['position'] ?>
+                                            <br><?= $jadwal['opening_hours'] ?>
+                                        </td>
+                                        <td class="text-bold-500"><?= $jadwal['position'] ?>
+                                            <br><?= $jadwal['opening_hours'] ?>
+                                        </td>
+                                        <td class="text-bold-500"><?= $jadwal['position'] ?>
+                                            <br><?= $jadwal['opening_hours'] ?>
+                                        </td>
+                                    </tr>
+                                <?php endforeach; ?>
+
                             </tbody>
                         </table>
                     </div>
