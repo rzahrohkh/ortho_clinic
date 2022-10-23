@@ -43,7 +43,7 @@
                         <li class="sidebar-item  ">
                             <a href="<?php base_url() ?>auth/logout" class='sidebar-link'>
                                 <i class="bi bi-box-arrow-left"></i>
-                                <span>Donate</span>
+                                <span>Keluar</span>
                             </a>
                         </li>
 

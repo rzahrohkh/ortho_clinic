@@ -53,4 +53,29 @@ class Auth extends CI_Controller
             }
         }
     }
+
+    public function logout() // tugasnya mengembalikan login
+    {
+
+        $session_worker = $this->session->userdata('id_user');
+        $session_patient = $this->session->userdata('id_patient');
+        if ($session_worker) {
+            $this->session->unset_userdata('id_user');
+            $this->session->unset_userdata('role_id');
+            $this->session->unset_userdata('id_patient');
+            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Anda telah berhasil keluar</div>');
+            redirect('worker');
+        }
+        if ($session_patient) {
+            $this->session->unset_userdata('id_patient');
+            $this->session->unset_userdata('role_id');
+            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Anda telah berhasil keluar</div>');
+            redirect('auth');
+        }
+    }
+
+    public function blocked()
+    {
+        $this->load->view('auth/blocked');
+    }
 }
