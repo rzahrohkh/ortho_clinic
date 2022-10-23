@@ -12,21 +12,21 @@
                 </div>
                 <h1 class="auth-title">Masuk</h1>
                 <p class="auth-subtitle mb-5">Silahkan masuk terlebih dahulu.</p>
-
-                <form action="<?php base_url() ?>">
+                <?= $this->session->flashdata('message'); ?>
+                <form action="<?php base_url('auth') ?>" method="POST">
                     <div class="form-group position-relative has-icon-left mb-4">
-                        <input type="text" class="form-control form-control-xl" placeholder="Username">
+                        <input type="text" class="form-control form-control-xl" name="medicalRecordNumber" placeholder="Nomor Rekam Medis">
                         <div class="form-control-icon">
                             <i class="bi bi-person"></i>
                         </div>
                     </div>
                     <div class="form-group position-relative has-icon-left mb-4">
-                        <input type="password" class="form-control form-control-xl" placeholder="Password">
+                        <input type="password" class="form-control form-control-xl" name="password" placeholder="Password">
                         <div class="form-control-icon">
                             <i class="bi bi-shield-lock"></i>
                         </div>
                     </div>
-                    <button class="btn btn-primary btn-block btn-lg shadow-lg mt-2">Log in</button>
+                    <button type="submit" class="btn btn-primary btn-block btn-lg shadow-lg mt-2">Masuk</button>
                 </form>
 
             </div>
