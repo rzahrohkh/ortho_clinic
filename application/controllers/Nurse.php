@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class Patient extends CI_Controller
+class Nurse extends CI_Controller
 {
 	public function __construct()
 	{
@@ -14,9 +14,9 @@ class Patient extends CI_Controller
 	public function index()
 	{
 		$data['title'] = 'Dashboard';
-		$this->load->view('templates_dp/patient/header', $data);
+		$this->load->view('templates_dp/worker/header', $data);
 		$this->load->view('templates_dp/worker/sidebar', $data);
-		$this->load->view('dp/patient/index', $data);
-		$this->load->view('templates_dp/patient/footer', $data);
+		$this->load->view('dp/nurse/index', $data);
+		$this->load->view('templates_dp/worker/footer', $data);
 	}
 }

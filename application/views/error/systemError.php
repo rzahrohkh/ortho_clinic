@@ -5,10 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SYSTEM ERROR</title>
-    <link rel="stylesheet" href="assets/css/main/app.css">
-    <link rel="stylesheet" href="assets/css/pages/error.css">
-    <link rel="shortcut icon" href="assets/images/logo/favicon.svg" type="image/x-icon">
-    <link rel="shortcut icon" href="assets/images/logo/favicon.png" type="image/png">
+    <link rel="stylesheet" href="<?php base_url() ?>assets/css/main/app.css">
+    <link rel="stylesheet" href="<?php base_url() ?>assets/css/pages/error.css">
+    <link rel="shortcut icon" href="<?php base_url() ?>assets/images/logo/favicon.svg" type="image/x-icon">
+    <link rel="shortcut icon" href="<?php base_url() ?>assets/images/logo/favicon.png" type="image/png">
 </head>
 
 <body>
@@ -18,7 +18,7 @@
         <div class="error-page container">
             <div class="col-md-8 col-12 offset-md-2">
                 <div class="text-center">
-                    <img class="img-error" src="assets/images/samples/systemError.svg" alt="Not Found">
+                    <img class="img-error" src="<?php base_url() ?>assets/images/samples/systemError.svg" alt="Not Found">
                     <h1 class="error-title">Sistem Error</h1>
                     <p class="fs-5 text-gray-600">Situs web saat ini tidak tersedia. Coba lagi nanti atau hubungi
                         pengembang.</p>
