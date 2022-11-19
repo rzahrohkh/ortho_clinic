@@ -10,13 +10,14 @@
             </footer>
             </div>
             </div>
-            <script src="assets/js/bootstrap.js"></script>
-            <script src="assets/js/app.js"></script>
+            <script src="<?= base_url() ?>assets/js/bootstrap.js"></script>
+            <script src="<?= base_url() ?>assets/js/app.js"></script>
 
             <!-- Need: Apexcharts -->
-            <script src="assets/extensions/apexcharts/apexcharts.min.js"></script>
-            <script src="assets/js/pages/dashboard.js"></script>
-
+            <script src="<?= base_url() ?>assets/extensions/apexcharts/apexcharts.min.js"></script>
+            <script src="<?= base_url() ?>assets/js/pages/dashboard.js"></script>
+            <script src="<?= base_url() ?>assets/extensions/simple-datatables/umd/simple-datatables.js"></script>
+            <script src="<?= base_url() ?>assets/js/pages/simple-datatables.js"></script>
             </body>
 
             </html>

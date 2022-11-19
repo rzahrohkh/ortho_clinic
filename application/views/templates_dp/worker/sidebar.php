@@ -3,7 +3,7 @@
                 <div class="sidebar-header position-relative">
                     <div class="d-flex justify-content-between align-items-center">
                         <div class="logo">
-                            <a href="index.html"><img src="assets/images/logo/logo.svg" alt="Logo" srcset=""></a>
+                            <a href="<?= base_url() ?>"><img src="<?= base_url() ?>assets/images/logo/logo.svg" alt="Logo" srcset=""></a>
                         </div>
                         <div class="theme-toggle d-flex gap-2  align-items-center mt-2">
                             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="iconify iconify--system-uicons" width="20" height="20" preserveAspectRatio="xMidYMid meet" viewBox="0 0 21 21">
@@ -62,7 +62,7 @@
                                     <?php else : ?>
                                     <li class="sidebar-item">
                                     <?php endif; ?>
-                                    <a href="<?php base_url($sm['icon']) ?>" class='sidebar-link'>
+                                    <a href="<?= base_url() ?><?= $sm['url'] ?>" class='sidebar-link'>
                                         <i class="<?= $sm['icon'] ?>"></i>
                                         <span><?= $sm['title'] ?></span>
                                     </a>
@@ -70,7 +70,7 @@
                                 <?php endforeach; ?>
                             <?php endforeach; ?>
                             <li class="sidebar-item  ">
-                                <a href="<?php base_url() ?>worker/logout" class='sidebar-link'>
+                                <a href="<?= base_url() ?>worker/logout" class='sidebar-link'>
                                     <i class="bi bi-box-arrow-left"></i>
                                     <span>Keluar</span>
                                 </a>
