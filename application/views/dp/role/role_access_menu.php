@@ -50,6 +50,7 @@
                                         </div>
 
                                         <div class="form-group">
+                                            <a href="<?= base_url() ?>role" class="btn btn-warning">Kembali</a>
                                             <button type="submit" class="btn icon icon-left btn-success"><i data-feather="check-circle"></i>
                                                 Simpan</button>
                                         </div>
@@ -63,4 +64,3 @@
     </div>
 
     </section>
-</div>

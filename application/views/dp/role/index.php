@@ -54,11 +54,18 @@
                                     <tr>
                                         <td><?= $i ?></td>
                                         <td><?= $dataRole['role'] ?></td>
-                                        <td style="width:25% ;">
-                                            <a href="<?= base_url(); ?>role/user_access/<?= $dataRole['role_id']; ?>" class="badge bg-warning">Hak akses</a>
-                                            <a href="<?= base_url(); ?>role/edit/<?= $dataRole['role_id']; ?>" class="badge bg-success">Ubah</a>
-                                            <a href="<?= base_url(); ?>role/delete/<?= $dataRole['role_id']; ?>" class="badge bg-danger hapus-news">Hapus</a>
-                                        </td>
+                                        <?php if ($dataRole['role'] != "Admin") : ?>
+                                            <td style="width:25% ;">
+                                                <a href="<?= base_url(); ?>role/user_access/<?= $dataRole['role_id']; ?>" class="badge bg-warning">Hak akses</a>
+                                                <a href="<?= base_url(); ?>role/edit/<?= $dataRole['role_id']; ?>" class="badge bg-success">Ubah</a>
+                                                <a href="<?= base_url(); ?>role/delete/<?= $dataRole['role_id']; ?>" class="badge bg-danger hapus-news">Hapus</a>
+                                            </td>
+                                        <?php else : ?>
+                                            <td style="width:25% ;">
+                                                <a href="<?= base_url(); ?>role/user_access/<?= $dataRole['role_id']; ?>" class="badge bg-warning">Hak akses</a>
+
+                                            </td>
+                                        <?php endif; ?>
                                     </tr>
                                     <?php $i++; ?>
                                 <?php endforeach; ?>
