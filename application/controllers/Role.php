@@ -65,7 +65,12 @@ class Role extends CI_Controller
 		$this->load->view('templates_dp/worker/footer', $data);
 	}
 
-	public function delete()
+	public function delete($id)
 	{
+		$this->Role_model->delete_role($id);
+		$this->session->set_flashdata('flash', 'dihapus');
+		$this->session->set_flashdata('data', 'Peran');
+		$url = "role";
+		redirect($url);
 	}
 }
