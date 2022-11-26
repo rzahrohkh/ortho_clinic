@@ -43,7 +43,7 @@
                                     <form method="POST" action="<?= base_url() ?>role/add" class="needs-validation" novalidate="">
                                         <div class="form-group">
                                             <label for="role">Nama Role User</label>
-                                            <input type="text" class="form-control" id="basicInput" name="role" placeholder="Masukkan Nama Role User">
+                                            <input type="text" class="form-control" id="basicInput" name="role" required placeholder="Masukkan Nama Role User">
                                             <div class="invalid-feedback">
                                                 Silahkan masukan nama role terlebih dahulu
                                             </div>

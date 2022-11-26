@@ -25,7 +25,7 @@ class Role extends CI_Controller
 	public function add()
 	{
 		$data['title'] = 'Tambah Role User';
-		$this->form_validation->set_rules('role', 'role', 'trim');
+		$this->form_validation->set_rules('role', 'role', 'trim|required');
 		if ($this->form_validation->run() == false) {
 			$this->load->view('templates_dp/worker/header', $data);
 			$this->load->view('templates_dp/worker/sidebar', $data);
@@ -47,13 +47,29 @@ class Role extends CI_Controller
 		}
 	}
 
-	public function edit()
+	public function edit($id)
 	{
 		$data['title'] = 'Edit Role User';
-		$this->load->view('templates_dp/worker/header', $data);
-		$this->load->view('templates_dp/worker/sidebar', $data);
-		$this->load->view('dp/role/role_edit', $data);
-		$this->load->view('templates_dp/worker/footer', $data);
+		$this->form_validation->set_rules('role', 'role', 'trim|required');
+		$data['data_role'] = $this->Role_model->get_role_byID($id);
+		if ($this->form_validation->run() == false) {
+			$this->load->view('templates_dp/worker/header', $data);
+			$this->load->view('templates_dp/worker/sidebar', $data);
+			$this->load->view('dp/role/role_edit', $data);
+			$this->load->view('templates_dp/worker/footer', $data);
+		} else {
+			$role = $this->input->post('role', true);
+			$role_id = $this->input->post('role_id', true);
+			$data_input = array(
+				'role' => $role
+			);
+
+			$this->Role_model->update_role($data_input, $role_id);
+			$this->session->set_flashdata('flash', 'Di perbarui');
+			$this->session->set_flashdata('data', 'Role User Baru');
+
+			redirect('role');
+		}
 	}
 
 	public function user_access()
@@ -69,7 +85,7 @@ class Role extends CI_Controller
 	{
 		$this->Role_model->delete_role($id);
 		$this->session->set_flashdata('flash', 'dihapus');
-		$this->session->set_flashdata('data', 'Peran');
+		$this->session->set_flashdata('data', 'Role User');
 		$url = "role";
 		redirect($url);
 	}
