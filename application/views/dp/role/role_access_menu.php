@@ -40,21 +40,36 @@
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-md-12">
-                                    <form method="POST" action="<?= base_url() ?>role/add" class="needs-validation" novalidate="">
-                                        <div class="form-group">
-                                            <label for="role">Nama Role User</label>
-                                            <input type="text" class="form-control" id="basicInput" name="role" required placeholder="Masukkan Nama Role User">
-                                            <div class="invalid-feedback">
-                                                Silahkan masukan nama role terlebih dahulu
-                                            </div>
-                                        </div>
 
-                                        <div class="form-group">
-                                            <a href="<?= base_url() ?>role" class="btn btn-warning">Kembali</a>
-                                            <button type="submit" class="btn icon icon-left btn-success"><i data-feather="check-circle"></i>
-                                                Simpan</button>
-                                        </div>
-                                    </form>
+                                    <table id="datatable" class="table table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">#</th>
+                                                <th scope="col">Menu</th>
+                                                <th scope="col">Akses</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <?php $i = 1; ?>
+                                            <?php foreach ($menu as $m) : ?>
+                                                <tr>
+                                                    <th scope="row" width="10%"><?= $i; ?></th>
+                                                    <td><?= $m['menu']; ?></td>
+                                                    <td>
+                                                        <div class="form-check">
+                                                            <input class="form-check-input" type="checkbox" <?= check_access($role['role_id'], $m['id_user_menu']); ?> data-role="<?= $role['role_id']; ?>" data-menu="<?= $m['id_user_menu']; ?>">
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <?php $i++; ?>
+                                            <?php endforeach; ?>
+                                        </tbody>
+                                    </table>
+
+                                    <div class="form-group">
+                                        <a href="<?= base_url() ?>role" class="btn btn-warning">Kembali</a>
+                                    </div>
+
                                 </div>
                             </div>
                         </div>
@@ -64,3 +79,29 @@
     </div>
 
     </section>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script>
+        $('.custom-file-input').on('change', function() {
+            let fileName = $(this).val().split('\\').pop();
+            $(this).next('.custom-file-label').addClass("selected").html(fileName);
+        });
+
+        $('.form-check-input').on('click', function() {
+            const menuId = $(this).data('menu');
+            const roleId = $(this).data('role');
+
+            $.ajax({
+                url: "<?= base_url('role/change_user_access'); ?>",
+                type: 'post',
+                data: {
+                    menuId: menuId,
+                    roleId: roleId
+                },
+                success: function() {
+                    document.location.href = "<?= base_url('role/user_access/'); ?>" + roleId;
+                }
+            });
+
+        });
+    </script>
