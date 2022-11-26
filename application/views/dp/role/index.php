@@ -10,13 +10,13 @@
             <div class="row">
                 <div class="col-12 col-md-6 order-md-1 order-last">
                     <h3><?php echo $title ?></h3>
-                    <p class="text-subtitle text-muted">Ini adalah Halaman Manajemen Role</p>
+                    <p class="text-subtitle text-muted">Ini Adalah Halaman <?php echo $title ?></p>
                 </div>
                 <div class="col-12 col-md-6 order-md-2 order-first">
                     <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="<?= base_url() ?>">Dashboard</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Role</li>
+                            <li class="breadcrumb-item"><a href="<?= base_url() ?>admin">Dashboard</a></li>
+                            <li class="breadcrumb-item active" aria-current="page"><?php echo $title ?></li>
                         </ol>
                     </nav>
                 </div>
@@ -36,6 +36,10 @@
                         <a href="<?= base_url(); ?>role/add" class="btn btn-success"> + Tambah role baru</a>
                     </div>
                     <div class="card-body">
+                        <div class="flash-data-news" data-flashdata="<?= $this->session->flashdata('flash') ?>">
+                        </div>
+                        <div class="flash-data-data" data-flashdata="<?= $this->session->flashdata('data') ?>">
+                        </div>
                         <table class="table table-striped table-responsive" id="table1">
                             <thead>
                                 <tr>

@@ -1,0 +1,1 @@
+$(document).ready(function() { $(".summernote").summernote({ height: 120, minHeight: null, maxHeight: null, focus: !1 }), $(".summernote-inline").summernote({ airMode: !0 }) });

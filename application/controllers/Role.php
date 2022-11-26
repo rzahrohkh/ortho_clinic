@@ -25,10 +25,26 @@ class Role extends CI_Controller
 	public function add()
 	{
 		$data['title'] = 'Tambah Role User';
-		$this->load->view('templates_dp/worker/header', $data);
-		$this->load->view('templates_dp/worker/sidebar', $data);
-		$this->load->view('dp/role/role_add', $data);
-		$this->load->view('templates_dp/worker/footer', $data);
+		$this->form_validation->set_rules('role', 'role', 'trim');
+		if ($this->form_validation->run() == false) {
+			$this->load->view('templates_dp/worker/header', $data);
+			$this->load->view('templates_dp/worker/sidebar', $data);
+			$this->load->view('dp/role/role_add', $data);
+			$this->load->view('templates_dp/worker/footer', $data);
+		} else {
+			$role = $this->input->post('role', true);
+
+			$data_input = array(
+				'role_id' => NULL,
+				'role' => $role
+			);
+
+			$this->Role_model->add_role($data_input);
+			$this->session->set_flashdata('flash', 'Ditambahkan');
+			$this->session->set_flashdata('data', 'Role User baru');
+
+			redirect('role');
+		}
 	}
 
 	public function edit()

@@ -10,14 +10,14 @@
             <div class="row">
                 <div class="col-12 col-md-6 order-md-1 order-last">
                     <h3><?php echo $title ?></h3>
-                    <p class="text-subtitle text-muted">Ini adalah Halaman Manajemen Role User</p>
+                    <p class="text-subtitle text-muted">Ini Adalah Halaman <?php echo $title ?></p>
                 </div>
                 <div class="col-12 col-md-6 order-md-2 order-first">
                     <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="<?= base_url() ?>">Dashboard</a></li>
-                            <li class="breadcrumb-item"><a href="<?= base_url() ?>">Manajemen Role User</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Role</li>
+                            <li class="breadcrumb-item"><a href="<?= base_url() ?>admin">Dashboard</a></li>
+                            <li class="breadcrumb-item"><a href="<?= base_url() ?>role">Manajemen Role User</a></li>
+                            <li class="breadcrumb-item active" aria-current="page"><?php echo $title ?></li>
                         </ol>
                     </nav>
                 </div>
@@ -26,11 +26,40 @@
     </div>
     <div class="page-content">
         <section class="row">
+            <div class="flash-data-news" data-flashdata="<?= $this->session->flashdata('flash') ?>">
+            </div>
+            <div class="flash-data-data" data-flashdata="<?= $this->session->flashdata('data') ?>">
+            </div>
             <div class="col-12">
                 <div class="row">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4 class="card-title">Role Baru</h4>
+                        </div>
 
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <form method="POST" action="<?= base_url() ?>role/add" class="needs-validation" novalidate="">
+                                        <div class="form-group">
+                                            <label for="role">Nama Role User</label>
+                                            <input type="text" class="form-control" id="basicInput" name="role" placeholder="Masukkan Nama Role User">
+                                            <div class="invalid-feedback">
+                                                Silahkan masukan nama role terlebih dahulu
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <button type="submit" class="btn icon icon-left btn-success"><i data-feather="check-circle"></i>
+                                                Simpan</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-
-        </section>
     </div>
+
+    </section>
+</div>
