@@ -47,10 +47,11 @@ class Role extends CI_Controller
 		}
 	}
 
-	public function edit($id)
+	public function edit()
 	{
 		$data['title'] = 'Edit Role User';
 		$this->form_validation->set_rules('role', 'role', 'trim|required');
+		$id = $this->uri->segment(3, 0);
 		$data['data_role'] = $this->Role_model->get_role_byID($id);
 		if ($this->form_validation->run() == false) {
 			$this->load->view('templates_dp/worker/header', $data);
