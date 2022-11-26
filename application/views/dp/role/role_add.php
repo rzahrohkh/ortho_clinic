@@ -52,6 +52,7 @@
                                         <div class="form-group">
                                             <button type="submit" class="btn icon icon-left btn-success"><i data-feather="check-circle"></i>
                                                 Simpan</button>
+                                        </div>
                                     </form>
                                 </div>
                             </div>

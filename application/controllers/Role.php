@@ -72,9 +72,13 @@ class Role extends CI_Controller
 		}
 	}
 
-	public function user_access()
+	public function user_access($id)
 	{
 		$data['title'] = 'Akses Menu User';
+		$data['data'] = $this->Role_model->get_role();
+		$data['menu'] = $this->db->get('user_menu')->result_array();
+		$data['role'] = $this->db->get_where('role', ['role_id' => $id])->row_array();
+		$data['title'] = 'Manajemen Hak Akses';
 		$this->load->view('templates_dp/worker/header', $data);
 		$this->load->view('templates_dp/worker/sidebar', $data);
 		$this->load->view('dp/role/role_access_menu', $data);
@@ -88,5 +92,29 @@ class Role extends CI_Controller
 		$this->session->set_flashdata('data', 'Role User');
 		$url = "role";
 		redirect($url);
+	}
+
+	public function change_user_access()
+	{
+
+		$menu_id = $this->input->post('menuId');
+		$role_id = $this->input->post('roleId');
+
+		$data = [
+			'id_role' => $role_id,
+			'id_user_menu' => $menu_id
+		];
+
+		$result = $this->db->get_where('user_access_menu', $data);
+
+		if ($result->num_rows() < 1) {
+			$this->db->insert('user_access_menu', $data);
+		} else {
+			$this->db->delete('user_access_menu', $data);
+		}
+
+		$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Access Changed!</div>');
+		$this->session->set_flashdata('flash', 'Di perbarui');
+		$this->session->set_flashdata('data', 'Hak Akses User');
 	}
 }
