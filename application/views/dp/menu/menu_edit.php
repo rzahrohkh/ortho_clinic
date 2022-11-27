@@ -16,7 +16,7 @@
                     <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="<?= base_url() ?>admin">Dashboard</a></li>
-                            <li class="breadcrumb-item"><a href="<?= base_url() ?>role">Manajemen Role User</a></li>
+                            <li class="breadcrumb-item"><a href="<?= base_url() ?>menu">Manajemen Menu</a></li>
                             <li class="breadcrumb-item active" aria-current="page"><?php echo $title ?></li>
                         </ol>
                     </nav>
@@ -34,24 +34,24 @@
                 <div class="row">
                     <div class="card">
                         <div class="card-header">
-                            <h4 class="card-title">Role Baru</h4>
+                            <h4 class="card-title">Edit Menu</h4>
                         </div>
 
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-md-12">
-                                    <form method="POST" action="<?= base_url() ?>role/edit" class="needs-validation" novalidate="">
+                                    <form method="POST" action="<?= base_url() ?>menu/edit" class="needs-validation" novalidate="">
                                         <div class="form-group">
-                                            <label for="role">Nama Role User</label>
-                                            <input type="text" hidden disable name="role_id" class="form-control" value="<?= $data_role['role_id'] ?>">
-                                            <input type="text" class="form-control" id="basicInput" name="role" required placeholder="Masukkan Nama Role User" value="<?= $data_role['role'] ?>">
-                                            <div class="invalid-feedback">
-                                                Silahkan masukan nama role terlebih dahulu
+                                            <label for="menu">Nama Menu</label>
+                                            <input type="text" name="id_user_menu" class="form-control" hidden disable required autofocus tabindex="1" value="<?= $data['id_user_menu'] ?>">
+                                            <input type="text" class="form-control" id="basicInput" name="menu" required placeholder="Masukkan Nama Menu" value="<?= $data['menu'] ?>">
+                                            <div class=" invalid-feedback">
+                                                Masukkan nama menu
                                             </div>
                                         </div>
 
                                         <div class="form-group">
-                                            <a href="<?= base_url() ?>role" class="btn btn-warning">Kembali</a>
+                                            <a href="<?= base_url() ?>menu" class="btn btn-warning">Kembali</a>
                                             <button type="submit" class="btn icon icon-left btn-success"><i data-feather="check-circle"></i>
                                                 Simpan Perubahan</button>
                                         </div>

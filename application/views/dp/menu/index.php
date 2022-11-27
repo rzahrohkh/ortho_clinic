@@ -33,7 +33,7 @@
                         Data Menu
                     </div>
                     <div class="d-flex flex-row-reverse" style="margin-right: 3% ; margin-button: 1%;">
-                        <a href="<?= base_url(); ?>role/add" class="btn btn-success"> + Tambah Menu</a>
+                        <a href="<?= base_url(); ?>menu/add" class="btn btn-success"> + Tambah Menu</a>
                     </div>
                     <div class="card-body">
                         <div class="flash-data-news" data-flashdata="<?= $this->session->flashdata('flash') ?>">
