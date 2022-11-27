@@ -35,6 +35,8 @@
 <script src="<?= base_url(); ?>assets_user/js/page/sweet-alerts.init.js"></script>
 <script src="<?= base_url(); ?>assets_user/js/myscript.js"></script>
 <script src="<?= base_url() ?>assets_user/js/page/index.js"></script>
+<script src="<?= base_url() ?>assets/extensions/choices.js/public/assets/scripts/choices.js"></script>
+<script src="<?= base_url() ?>assets/js/pages/form-element-select.js"></script>
 </body>
 
 </html>

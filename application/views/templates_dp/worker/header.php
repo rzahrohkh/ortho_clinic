@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="<?= base_url() ?>assets/extensions/simple-datatables/style.css">
     <link rel="stylesheet" href="<?= base_url() ?>assets/css/pages/simple-datatables.css">
     <link href="<?= base_url() ?>assets_user/libs/sweetalert2/sweetalert2.min.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="<?= base_url() ?>assets/extensions/choices.js/public/assets/styles/choices.css">
 
 </head>
 
