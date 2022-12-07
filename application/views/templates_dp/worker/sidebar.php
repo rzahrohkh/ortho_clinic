@@ -45,8 +45,7 @@
                     ?>
                     <ul class="menu">
                         <?php foreach ($menu as $m) : ?>
-                            <li class="sidebar-title"><?= $m['menu'] ?></li>
-
+                            <li class="sidebar-title fw-bold"><?= $m['menu'] ?></li>
                             <?php
                             $menuId = $m['id_user_menu'];
                             $querySubMenu = "SELECT * 
@@ -58,9 +57,9 @@
                             ?>
                             <?php foreach ($subMenu as $sm) : ?>
                                 <?php if ($title == $sm['title']) : ?>
-                                    <li class="sidebar-item active ">
+                                    <li class="sidebar-item active fw-normal">
                                     <?php else : ?>
-                                    <li class="sidebar-item">
+                                    <li class="sidebar-item fw-normal">
                                     <?php endif; ?>
                                     <a href="<?= base_url() ?><?= $sm['url'] ?>" class='sidebar-link'>
                                         <i class="<?= $sm['icon'] ?>"></i>
@@ -69,6 +68,13 @@
                                     </li>
                                 <?php endforeach; ?>
                             <?php endforeach; ?>
+                            <hr class="bg-danger border-2 border-top border">
+                            <li class="sidebar-item  ">
+                                <a href="<?= base_url() ?>profile" class='sidebar-link'>
+                                    <i class="bi bi-person-fill"></i>
+                                    <span>Profil</span>
+                                </a>
+                            </li>
                             <li class="sidebar-item  ">
                                 <a href="<?= base_url() ?>worker/logout" class='sidebar-link'>
                                     <i class="bi bi-box-arrow-left"></i>
