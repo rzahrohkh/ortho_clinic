@@ -54,6 +54,7 @@ class ContactClinic extends CI_Controller
             $this->load->view('dp/contact/contact_edit', $data);
             $this->load->view('templates_dp/worker/footer', $data);
         } else {
+            $id = $this->input->post('id_contact', true);
             $this->formField($id);
             $this->Contact_model->update_contact_clinic($this->data_input, $id);
             swalSuccess('Diperbarui', 'Kontak');
@@ -62,12 +63,12 @@ class ContactClinic extends CI_Controller
         }
     }
 
-    // public function delete($id)
-    // {
-    //     $this->Drugs_model->delete_drugs($id);
-    //     swalSuccess('Dihapus', '???');
-    //     redirect($this->nameClass);
-    // }
+    public function delete($id)
+    {
+        $this->Contact_model->delete_contact_clinic($id);
+        swalSuccess('Dihapus', 'Kontak');
+        redirect($this->nameClass);
+    }
 
     public function formValidation()
     {
