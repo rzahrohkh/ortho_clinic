@@ -1,34 +1,34 @@
 <?php
-class Template_model  extends CI_model
+class Template_model  extends CI_model // sesui dengan nama tabel di db
 {
-    public function get_???_all()
+    public function get_namatabel_all()
     {
-        return $this->db->query("SELECT * FROM ???")->result_array();
+        return $this->db->query("SELECT * FROM namatabel")->result_array();
     }
 
-    public function get_???_byID($id_???)
+    public function get_namatabel_byID($id_sesuitabeldidb)
     {
         $this->db->select('*');
-        $this->db->from('???');
-        $this->db->where('id_???', $id_???);
+        $this->db->from('namatabel');
+        $this->db->where('id_sesuitabeldidb', $id_sesuitabeldidb);
         return $this->db->get()->row_array();
     }
-    public function delete_???($id_???)
+    public function delete_namatabel($id_sesuitabeldidb)
     {
-        $this->db->where('id_???', $id_???);
-        $this->db->delete('???');
+        $this->db->where('id_sesuitabeldidb', $id_sesuitabeldidb);
+        $this->db->delete('namatabel');
     }
 
-    public function add_???($data)
+    public function add_namatabel($data)
     {
-        $this->db->insert('???', $data);
+        $this->db->insert('namatabel', $data);
     }
 
-    public function update_???(
+    public function update_namatabel(
         $data,
-        $id_???
+        $id_sesuitabeldidb
     ) {
-        $this->db->update('???', $data, ['id_???' => $id_???]);
+        $this->db->update('namatabel', $data, ['id_sesuitabeldidb' => $id_sesuitabeldidb]);
         return $this->db->affected_rows();
     }
 }
