@@ -16,7 +16,7 @@
                     <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="<?= base_url() ?>admin">Dashboard</a></li>
-                            <li class="breadcrumb-item"><a href="<?= base_url() ?>ContactClinic">Kontak</a></li>
+                            <li class="breadcrumb-item"><a href="<?= base_url() ?>LandingProfile">Profil Klinik</a></li>
                             <li class="breadcrumb-item active" aria-current="page"><?php echo $title ?></li>
                         </ol>
                     </nav>
@@ -34,7 +34,7 @@
                 <div class="row">
                     <div class="card">
                         <div class="card-header">
-                            <h4 class="card-title">Kontak Baru</h4>
+                            <h4 class="card-title">Edit Profil Klinik</h4>
                         </div>
 
                         <div class="card-body">
@@ -46,49 +46,34 @@
                                             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                                         </div>
                                     <?php endif; ?>
-                                    <form method="POST" action="<?= base_url() ?>ContactClinic/add" class="needs-validation" novalidate="">
+                                    <form method="POST" action="<?= base_url() ?>landingprofile/edit" class="needs-validation" novalidate="">
 
                                         <div class="form-group">
-                                            <label for="title_contact">Nama Kontak</label>
-                                            <input type="text" class="form-control" id="basicInput" name="title_contact" require required placeholder="Masukkan Nama Kontak">
+                                            <label for="description_profile">Deskripsi Profil</label>
+                                            <!-- <textarea class="form-control" id="basicInput" rows="3" hidden readonly name="id_profile" value="<?= $dataEdit['id_profile'] ?>" require required placeholder="Masukkan Deskripsi Profil"></textarea> -->
+                                            <input type="text area" class="form-control" id="basicInput" hidden readonly name="id_profile" value="<?= $dataEdit['id_profile'] ?>" require required placeholder="Masukkan Deskripsi Profil">
+                                            <textarea class="form-control" id="basicInput" rows="3" name="description_profile" require required placeholder="Masukkan Deskripsi Profil"><?= $dataEdit['description_profile'] ?></textarea>
+                                            <!-- <input type="text area" class="form-control" id="basicInput" name="description_profile" value="<?= $dataEdit['description_profile'] ?>" require required placeholder="Masukkan Deskripsi Profil"> -->
                                             <div class="invalid-feedback">
-                                                Silahkan masukan nama kontak terlebih dahulu
+                                                Silahkan masukan deskripsi terlebih dahulu
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label for="value_contact">Isi Kontak</label>
-                                            <input type="text" class="form-control" id="basicInput" name="value_contact" require required placeholder="Masukkan Isi Kontak">
+                                            <label for="operational_hour">Jam Operasional</label>
+                                            <textarea type="text area" class="form-control" id="basicInput" name="operational_hour" require required placeholder="Masukkan Jam Operasional"><?= $dataEdit['operational_hour'] ?></textarea>
                                             <div class="invalid-feedback">
-                                                Silahkan masukan isi kontak terlebih dahulu
+                                                Silahkan masukan jam operasional terlebih dahulu
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label for="menu">Tipe Kontak</label>
-                                            <select name="type_contact" id="type_contact" class="choices form-control">
-                                                <option disabled selected>Pilih Tipe Kontak</option>
-                                                <option value="sosmed">Sosmed</option>
-                                                <option value="non sosmed">Non Sosmed</option>
-                                            </select>
+                                            <label for="customer_service">Pelayanan Klinik</label>
+                                            <textarea type="text area" class="form-control" id="basicInput" name="customer_service" require required placeholder="Masukkan Pelayanan Klinik"><?= $dataEdit['customer_service'] ?></textarea>
                                             <div class="invalid-feedback">
-                                                Silahkan isi tipe sosmed terlebih dahulu
+                                                Silahkan masukan pelayanan klinik terlebih dahulu
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label for="icon_contact">Icon Kontak</label>
-                                            <input type="text" class="form-control" id="basicInput" name="icon_contact" require required placeholder="Masukkan Icon Kontak">
-                                            <div class="invalid-feedback">
-                                                Silahkan masukan icon kontak terlebih dahulu
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="class">Kelas Kontak</label>
-                                            <input type="text" class="form-control" id="basicInput" name="class" require required placeholder="Masukkan Kelas Kontak">
-                                            <div class="invalid-feedback">
-                                                Silahkan masukan kelas kontak terlebih dahulu
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <a href="<?= base_url() ?>ContactClinic" class="btn btn-warning">Kembali</a>
+                                            <a href="<?= base_url() ?>landingprofile" class="btn btn-warning">Kembali</a>
                                             <button type="submit" class="btn icon icon-left btn-success"><i data-feather="check-circle"></i>
                                                 Simpan</button>
                                         </div>

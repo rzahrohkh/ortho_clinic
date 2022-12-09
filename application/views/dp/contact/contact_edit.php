@@ -98,7 +98,7 @@
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <a href="<?= base_url() ?>drugs" class="btn btn-warning">Kembali</a>
+                                            <a href="<?= base_url() ?>ContactClinic" class="btn btn-warning">Kembali</a>
                                             <button type="submit" class="btn icon icon-left btn-success"><i data-feather="check-circle"></i>
                                                 Simpan</button>
                                         </div>
