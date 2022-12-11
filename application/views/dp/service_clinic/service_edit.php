@@ -80,7 +80,7 @@
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label for="menu">Warna</label>
+                                            <label for="color">Warna</label>
                                             <select name="color" id="color" class="choices form-control">
                                                 <option disabled selected>Pilih Warna</option>
                                                 <?php if ($dataEdit['color'] == 'Biru') : ?>
@@ -100,7 +100,7 @@
                                                 <?php endif ?>
                                             </select>
                                             <div class="form-group">
-                                                <label for="menu">Data AOS Delay</label>
+                                                <label for="data_aos_delay">Data AOS Delay</label>
                                                 <select name="data_aos_delay" id="data_aos_delay" class="choices form-control">
                                                     <option disabled selected>Pilih Data</option>
                                                     <?php if ($dataEdit['data_aos_delay'] == '200') : ?>

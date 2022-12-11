@@ -65,7 +65,7 @@ class ServiceClinic extends CI_Controller
 
     public function delete($id)
     {
-        $this->ServiceClini->delete_service_clinic($id);
+        $this->ServiceClinic_model->delete_service_clinic($id);
         swalSuccess('Dihapus', 'Pelayanan Klinik');
         redirect($this->nameClass);
     }
