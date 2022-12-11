@@ -42,25 +42,26 @@ class WorkerPosition extends CI_Controller
         }
     }
 
-    // public function edit()
-    // {
-    //     $data['title'] = 'Edit ???';
-    //     $this->formValidation();
-    //     $id = $this->uri->segment(3, 0);
-    //     $data['dataEdit'] = $this->???_model->get_???_byID($id);
-    //     if ($this->form_validation->run() == false) {
-    //         $this->load->view('templates_dp/worker/header', $data);
-    //         $this->load->view('templates_dp/worker/sidebar', $data);
-    //         $this->load->view('dp/???/???_edit', $data);
-    //         $this->load->view('templates_dp/worker/footer', $data);
-    //     } else {
-    //         $this->formField($id);
-    //         $this->Drugs_model->update_drugs($this->data_input, $id);
-    //         swalSuccess('Diperbarui', '???');
+    public function edit()
+    {
+        $data['title'] = 'Edit Jabatan';
+        $this->formValidation();
+        $id = $this->uri->segment(3, 0);
+        $data['dataEdit'] = $this->WorkerPosition_model->get_worker_position_clinic_byID($id);
+        if ($this->form_validation->run() == false) {
+            $this->load->view('templates_dp/worker/header', $data);
+            $this->load->view('templates_dp/worker/sidebar', $data);
+            $this->load->view('dp/worker_position/position_edit', $data);
+            $this->load->view('templates_dp/worker/footer', $data);
+        } else {
+            $id = $this->input->post('id_position', true);
+            $this->formField($id);
+            $this->WorkerPosition_model->update_worker_position_clinic($this->data_input, $id);
+            swalSuccess('Diperbarui', 'Jabatan');
 
-    //         redirect($this->nameClass);
-    //     }
-    // }
+            redirect($this->nameClass);
+        }
+    }
 
     // public function delete($id)
     // {
