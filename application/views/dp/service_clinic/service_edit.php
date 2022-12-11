@@ -83,20 +83,20 @@
                                             <label for="color">Warna</label>
                                             <select name="color" id="color" class="choices form-control">
                                                 <option disabled selected>Pilih Warna</option>
-                                                <?php if ($dataEdit['color'] == 'Biru') : ?>
-                                                    <option value="Biru" selected>Biru</option>
+                                                <?php if ($dataEdit['color'] == 'blue') : ?>
+                                                    <option value="blue" selected>Biru</option>
                                                 <?php else : ?>
-                                                    <option value="Biru">Biru</option>
+                                                    <option value="blue">Biru</option>
                                                 <?php endif ?>
-                                                <?php if ($dataEdit['color'] == 'Oranye') : ?>
-                                                    <option value="Oranye" selected>Oranye</option>
+                                                <?php if ($dataEdit['color'] == 'orange') : ?>
+                                                    <option value="orange" selected>Oranye</option>
                                                 <?php else : ?>
-                                                    <option value="Oranye">Oranye</option>
+                                                    <option value="orange">Oranye</option>
                                                 <?php endif ?>
-                                                <?php if ($dataEdit['color'] == 'Hijau') : ?>
-                                                    <option value="Hijau" selected>Hijau</option>
+                                                <?php if ($dataEdit['color'] == 'green') : ?>
+                                                    <option value="green" selected>Hijau</option>
                                                 <?php else : ?>
-                                                    <option value="Hijau">Hijau</option>
+                                                    <option value="green">Hijau</option>
                                                 <?php endif ?>
                                             </select>
                                             <div class="form-group">

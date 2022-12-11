@@ -73,9 +73,9 @@
                                             <label for="menu">Warna</label>
                                             <select name="color" id="color" class="choices form-control">
                                                 <option disabled selected>Pilih Warna</option>
-                                                <option value="Biru">Biru</option>
-                                                <option value="Oranye">Oranye</option>
-                                                <option value="Hijau">Hijau</option>
+                                                <option value="green">Biru</option>
+                                                <option value="orange">Oranye</option>
+                                                <option value="green">Hijau</option>
                                             </select>
                                             <div class="invalid-feedback">
                                                 Silahkan isi tipe warna terlebih dahulu
