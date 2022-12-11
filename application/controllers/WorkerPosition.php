@@ -63,12 +63,12 @@ class WorkerPosition extends CI_Controller
         }
     }
 
-    // public function delete($id)
-    // {
-    //     $this->Drugs_model->delete_drugs($id);
-    //     swalSuccess('Dihapus', '???');
-    //     redirect($this->nameClass);
-    // }
+    public function delete($id)
+    {
+        $this->WorkerPosition_model->delete_worker_position_clinic($id);
+        swalSuccess('Dihapus', 'Jabatan');
+        redirect($this->nameClass);
+    }
 
     public function formValidation()
     {
