@@ -63,12 +63,12 @@ class Unit extends CI_Controller
         }
     }
 
-    // public function delete($id)
-    // {
-    //     $this->Drugs_model->delete_drugs($id);
-    //     swalSuccess('Dihapus', '???');
-    //     redirect($this->nameClass);
-    // }
+    public function delete($id)
+    {
+        $this->Unit_model->delete_unit($id);
+        swalSuccess('Dihapus', 'Unit');
+        redirect($this->nameClass);
+    }
 
     public function formValidation()
     {
