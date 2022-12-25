@@ -58,7 +58,7 @@
                                             </div>
                                         </div>
                                         <div class="col-md-10 col-lg-12 col-xl-12 col-xxl-10">
-                                            <h6 class="text-muted font-semibold">Lihat Pasien</h6>
+                                            <h6 class="text-muted font-semibold">Lihat Riwayat Pasien</h6>
                                             <h6 class="font-extrabold mb-0">Melihat data pasien secara lengkap</h6>
                                         </div>
                                     </div>
