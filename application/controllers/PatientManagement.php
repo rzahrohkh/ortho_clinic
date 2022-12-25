@@ -16,7 +16,7 @@ class PatientManagement extends CI_Controller
 
     public function index()
     {
-        $data['title'] = 'Manajamen Pasien';
+        $data['title'] = 'Manajemen Pasien';
         $this->load->view('templates_dp/worker/header', $data);
         $this->load->view('templates_dp/worker/sidebar', $data);
         $this->load->view('dp/patient_management/index', $data);
