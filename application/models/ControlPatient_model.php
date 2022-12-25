@@ -4,12 +4,12 @@ class ControlPatient_model  extends CI_model // sesui dengan nama tabel di db
 
     public function get_jumlah_notif($id_patient)
     {
-        return $this->db->query("SELECT COUNT( id_control_patient ) jumlah_control FROM control_patient WHERE id_patient = $id_patient")->row_array();
+        return $this->db->query("SELECT COUNT( id_control_patient ) jumlah_control FROM control_patient WHERE id_patient = $id_patient AND status_control='belum kontrol'")->row_array();
     }
 
     public function get_jadwal_control_by_id_patient($id_patient)
     {
-        return $this->db->query("SELECT * FROM control_patient WHERE id_patient = $id_patient ORDER BY id_patient DESC LIMIT 1")->row_array();
+        return $this->db->query("SELECT * FROM control_patient WHERE id_patient = $id_patient AND status_control='belum kontrol' ORDER BY id_patient DESC LIMIT 1")->row_array();
     }
 
     public function get_control_patient_all()
