@@ -5,7 +5,7 @@ class User_model extends CI_model
     {
         return $this->db->query("SELECT * FROM  user natural join role")->result_array();
     }
-    public function get_use_byID($id_user)
+    public function get_user_byID($id_user)
     {
         return $this->db->query("SELECT * FROM  user where id_user=$id_user")->row_array();
     }
@@ -32,11 +32,13 @@ class User_model extends CI_model
     }
 
     public function update_user(
-        $id_user,
-        $data
+
+        $data,
+        $id_user
 
     ) {
-        $this->db->update('user', $data, ['id_user' => $id_user]);
+
+        $this->db->update('user', $data, ['id_user  ' => $id_user]);
         return $this->db->affected_rows();
     }
 
