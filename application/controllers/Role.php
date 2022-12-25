@@ -14,7 +14,7 @@ class Role extends CI_Controller
 
 	public function index()
 	{
-		$data['title'] = 'Manajemen Role User';
+		$data['title'] = 'Role';
 		$data['dataRole'] = $this->Role_model->get_role();
 		$this->load->view('templates_dp/worker/header', $data);
 		$this->load->view('templates_dp/worker/sidebar', $data);
