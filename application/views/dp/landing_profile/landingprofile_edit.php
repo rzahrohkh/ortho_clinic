@@ -52,7 +52,7 @@
                                             <label for="description_profile">Deskripsi Profil</label>
                                             <!-- <textarea class="form-control" id="basicInput" rows="3" hidden readonly name="id_profile" value="<?= $dataEdit['id_profile'] ?>" require required placeholder="Masukkan Deskripsi Profil"></textarea> -->
                                             <input type="text area" class="form-control" id="basicInput" hidden readonly name="id_profile" value="<?= $dataEdit['id_profile'] ?>" require required placeholder="Masukkan Deskripsi Profil">
-                                            <textarea class="form-control" id="basicInput" rows="3" name="description_profile" require required placeholder="Masukkan Deskripsi Profil"><?= $dataEdit['description_profile'] ?></textarea>
+                                            <textarea class="form-control summernote" id="basicInput" rows="3" name="description_profile" require required placeholder="Masukkan Deskripsi Profil"><?= $dataEdit['description_profile'] ?></textarea>
                                             <!-- <input type="text area" class="form-control" id="basicInput" name="description_profile" value="<?= $dataEdit['description_profile'] ?>" require required placeholder="Masukkan Deskripsi Profil"> -->
                                             <div class="invalid-feedback">
                                                 Silahkan masukan deskripsi terlebih dahulu
@@ -60,14 +60,14 @@
                                         </div>
                                         <div class="form-group">
                                             <label for="operational_hour">Jam Operasional</label>
-                                            <textarea type="text area" class="form-control" id="basicInput" name="operational_hour" require required placeholder="Masukkan Jam Operasional"><?= $dataEdit['operational_hour'] ?></textarea>
+                                            <textarea type="text area" class="form-control summernote" id="basicInput" name="operational_hour" require required placeholder="Masukkan Jam Operasional"><?= $dataEdit['operational_hour'] ?></textarea>
                                             <div class="invalid-feedback">
                                                 Silahkan masukan jam operasional terlebih dahulu
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label for="customer_service">Pelayanan Klinik</label>
-                                            <textarea type="text area" class="form-control" id="basicInput" name="customer_service" require required placeholder="Masukkan Pelayanan Klinik"><?= $dataEdit['customer_service'] ?></textarea>
+                                            <textarea type="text area" class="form-control summernote" id="basicInput" name="customer_service" require required placeholder="Masukkan Pelayanan Klinik"><?= $dataEdit['customer_service'] ?></textarea>
                                             <div class="invalid-feedback">
                                                 Silahkan masukan pelayanan klinik terlebih dahulu
                                             </div>

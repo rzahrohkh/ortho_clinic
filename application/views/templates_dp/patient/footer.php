@@ -37,6 +37,21 @@
 <script src="<?= base_url() ?>assets_user/js/page/index.js"></script>
 <script src="<?= base_url() ?>assets/extensions/choices.js/public/assets/scripts/choices.js"></script>
 <script src="<?= base_url() ?>assets/js/pages/form-element-select.js"></script>
+
+<script src="<?= base_url() ?>assets_user/libs/summernote/summernote-bs4.min.js"></script>
+<!-- <script src="<?= base_url() ?>assets_user/js/pages/summernote.init.js"></script> -->
+<script>
+    $(document).ready(function() {
+        $(".summernote").summernote({
+            height: 120,
+            minHeight: null,
+            maxHeight: null,
+            focus: !1
+        }), $(".summernote-inline").summernote({
+            airMode: !0
+        })
+    });
+</script>
 </body>
 
 </html>

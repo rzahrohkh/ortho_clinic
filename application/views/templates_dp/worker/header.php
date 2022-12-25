@@ -17,6 +17,9 @@
     <link href="<?= base_url() ?>assets_user/libs/sweetalert2/sweetalert2.min.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="<?= base_url() ?>assets/extensions/choices.js/public/assets/styles/choices.css">
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <link href="<?= base_url() ?>assets_user/libs/summernote/summernote-bs4.css" rel="stylesheet" type="text/css" />
+
 </head>
 
 <body>
