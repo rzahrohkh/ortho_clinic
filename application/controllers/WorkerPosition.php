@@ -16,7 +16,7 @@ class WorkerPosition extends CI_Controller
 
     public function index()
     {
-        $data['title'] = 'Jabatan';
+        $data['title'] = 'Posisi Pegawai';
         $data['WorkerPosition'] = $this->WorkerPosition_model->get_worker_position_clinic_all();
         $this->load->view('templates_dp/worker/header', $data);
         $this->load->view('templates_dp/worker/sidebar', $data);
