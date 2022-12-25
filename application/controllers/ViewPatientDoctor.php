@@ -16,7 +16,7 @@ class ViewPatientDoctor extends CI_Controller
 
     public function index()
     {
-        $data['title'] = 'Lihat Pasien';
+        $data['title'] = 'Lihat Riwayat Pasien';
         $this->load->view('templates_dp/worker/header', $data);
         $this->load->view('templates_dp/worker/sidebar', $data);
         $this->load->view('dp/view_patient_doctor/index', $data);
