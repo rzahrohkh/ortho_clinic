@@ -16,7 +16,7 @@ class ClinicOpeningHours extends CI_Controller
 
     public function index()
     {
-        $data['title'] = 'Jam Buka Praktek';
+        $data['title'] = 'Jam Buka Praktek Klinik';
         $data['ClinicOpeningHours'] = $this->ClinicOpeningHours_model->get_clinic_opening_hours_all();
         $this->load->view('templates_dp/worker/header', $data);
         $this->load->view('templates_dp/worker/sidebar', $data);
