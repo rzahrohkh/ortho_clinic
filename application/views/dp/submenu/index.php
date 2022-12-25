@@ -33,7 +33,7 @@
                         Data Sub Menu
                     </div>
                     <div class="d-flex flex-row-reverse" style="margin-right: 3% ; margin-button: 1%;">
-                        <a href="<?= base_url(); ?>subMenu/add" class="btn btn-success"> + Tambah role baru</a>
+                        <a href="<?= base_url(); ?>subMenu/add" class="btn btn-success"> + Tambah submenu baru</a>
                     </div>
                     <div class="card-body">
                         <div class="flash-data-news" data-flashdata="<?= $this->session->flashdata('flash') ?>">
