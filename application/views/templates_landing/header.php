@@ -9,9 +9,11 @@
     <meta content="" name="description">
 
     <meta content="" name="keywords">
-
+<?php
+$logo = $this->db->query("SELECT logo FROM logo_clinic WHERE id_logo = 2")->row_array();
+?>
     <!-- Favicons -->
-    <link href="<?php base_url() ?>asset_landing/img/favicon.png" rel="icon">
+    <link href="<?php base_url() ?>assets/images/logo/<?=$logo['logo']?>" rel="icon">
     <link href="<?php base_url() ?>asset_landing/img/apple-touch-icon.png" rel="apple-touch-icon">
     <link rel="<?php base_url() ?>stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
