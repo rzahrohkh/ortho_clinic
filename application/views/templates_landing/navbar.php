@@ -3,8 +3,8 @@
         <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
 
             <a href="<?php base_url() ?>" class="logo d-flex align-items-center">
-                <img src="<?php base_url() ?>asset_landing/img/logo.png" alt="">
-                <span><?= $title ?></span>
+                <img src="<?php base_url() ?>assets/images/logo/<?=$logo['logo']?>" alt="">
+                <!-- <span><?= $title ?></span> -->
             </a>
 
             <nav id="navbar" class="navbar">

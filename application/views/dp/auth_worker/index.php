@@ -1,3 +1,6 @@
+<?php
+$logo = $this->db->query("SELECT logo FROM logo_clinic WHERE id_logo = 1")->row_array();
+?>
 <div id="auth">
 
     <div class="row h-100">
@@ -8,7 +11,7 @@
                 </div>
                 <div class="auth-logo mb-5">
                     <a href="<?php base_url() ?>">
-                        <img style="width:50%;height:50%;" src="<?php base_url() ?>assets/images/logo/logo.svg" alt="Logo"></a>
+                        <img style="width:50%;height:50%;" src="<?php base_url() ?>assets/images/logo/<?=$logo['logo']?>" alt="Logo"></a>
                 </div>
                 <h1 class="auth-title">Masuk</h1>
                 <p class="auth-subtitle mb-5">Silahkan pegawai masuk terlebih dahulu.</p>

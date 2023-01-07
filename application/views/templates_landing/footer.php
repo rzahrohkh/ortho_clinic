@@ -6,8 +6,8 @@
                 <div class="row gy-4">
                     <div class="col-lg-5 col-md-12 footer-info">
                         <a href="<?php base_url() ?>" class="logo d-flex align-items-center">
-                            <img src="<?php base_url() ?>asset_landing/img/logo.png" alt="">
-                            <span>Ortho Clinic</span>
+                            <img src="<?php base_url() ?>assets/images/logo/<?=$logo['logo']?>" alt="">
+                            <!-- <span>Ortho Clinic</span> -->
                         </a>
                         <p>Dengan menggunakan aplikasi ini, dapat
                             mempermudah aktivitas anda di rumah .</p>
