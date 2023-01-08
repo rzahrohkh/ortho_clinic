@@ -46,83 +46,35 @@
                                             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                                         </div>
                                     <?php endif; ?>
-                                    <form method="POST" action="<?= base_url() ?>LogoClinic/edit" class="needs-validation" novalidate="">
-
+                                     <?= form_open_multipart('LogoClinic/edit'); ?>
                                         <div class="form-group">
-                                            <label for="logo">logo</label>
+                                            <label for="logo">Logo</label>
                                             <input type="text" class="form-control" id="basicInput" hidden readonly name="id_logo" value="<?= $dataEdit['id_logo'] ?>" require required placeholder="Masukkan Logo">
-                                            <input type="text" class="form-control" id="basicInput" name="drug_name" value="<?= $dataEdit['drug_name'] ?>" require required placeholder="Masukkan Nama Obat">
+                                            <div class="row">
+                                            <div class="col-sm-3">
+                                                <img src="<?= base_url('assets/images/logo/') . $dataEdit['logo']; ?>" class="img-thumbnail">
+                                            </div>
+                                            <div class="col-sm-9">
+                                                <div class="custom-file">
+                                                    <input type="file" class="custom-file-input form-control" id="image" name="image">
+        
+                                                </div>
+                                            </div>
+                                        </div>
                                             <div class="invalid-feedback">
                                                 Silahkan masukan nama obat terlebih dahulu
                                             </div>
                                         </div>
+                                        
                                         <div class="form-group">
-                                            <label for="menu">Tipe Obat</label>
-                                            <select name="drug_type" id="drug_type" class="choices form-control">
-                                                <option disabled selected>Pilih Tipe Obat</option>
-                                                <?php if ($dataEdit['drug_type'] == 'Sirup') : ?>
-                                                    <option value="Sirup" selected>Sirup</option>
-                                                <?php else : ?>
-                                                    <option value="Sirup">Sirup</option>
-                                                <?php endif ?>
-                                                <?php if ($dataEdit['drug_type'] == 'Pill') : ?>
-                                                    <option value="Pill" selected>Pill</option>
-                                                <?php else : ?>
-                                                    <option value="Pill">Pill</option>
-                                                <?php endif ?>
-
-                                            </select>
+                                            <label for="purchase_price">Deskripsi Logo</label>
+                                            <input type="text" class="form-control" id="basicInput" name="description" value="<?= $dataEdit['description'] ?>" required placeholder="Masukkan Deskripsi Logo">
                                             <div class="invalid-feedback">
-                                                Silahkan isi tipe obat terlebih dahulu
+                                                Silahkan masukan Deskripsi Logo terlebih dahulu
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label for="stock">Stok Obat</label>
-                                            <input type="number" class="form-control" id="basicInput" name="stock" value="<?= $dataEdit['stock'] ?>" required placeholder="Jumlah Stok">
-                                            <div class="invalid-feedback">
-                                                Silahkan masukan stok terlebih dahulu
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="menu">Units</label>
-                                            <select name="unit" id="unit" class="choices form-control">
-                                                <option disabled selected>Pilih Tipe Obat1</option>
-                                                <option readonly disabled selected>Pilih Menu</option>
-                                                <?php foreach ($unit as $unit) : ?>
-                                                    <?php if ($dataEdit['unit'] == $unit['unit_name']) : ?>
-                                                        <option value="<?= $unit['unit_name']; ?>" selected><?= $unit['unit_name'] ?> <?= $unit['unit_abbreviation'] ?></option>
-                                                    <?php else : ?>
-                                                        <option value="<?= $unit['unit_name']; ?>"><?= $unit['unit_name'] ?> <?= $unit['unit_abbreviation'] ?></option>
-                                                    <?php endif ?>
-                                                <?php endforeach; ?>
-                                            </select>
-                                            <div class="invalid-feedback">
-                                                Silahkan isi tipe obat terlebih dahulu
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="exp_date">Tanggal Expired</label>
-                                            <input type="date" class="form-control" id="basicInput" name="exp_date" value="<?= $dataEdit['exp_date'] ?>" required placeholder="Masukkan Tanggal Expired">
-                                            <div class="invalid-feedback">
-                                                Silahkan masukan tanggal expired terlebih dahulu
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="selling_price">Harga Jual Obat</label>
-                                            <input type="number" class="form-control" id="basicInput" name="selling_price" value="<?= $dataEdit['selling_price'] ?>" required placeholder="Masukkan Harga Jual Obat">
-                                            <div class="invalid-feedback">
-                                                Silahkan masukan harga jual obat terlebih dahulu
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="purchase_price">Harga Beli Obat</label>
-                                            <input type="number" class="form-control" id="basicInput" name="purchase_price" value="<?= $dataEdit['purchase_price'] ?>" required placeholder="Masukkan Harga Beli Obat">
-                                            <div class="invalid-feedback">
-                                                Silahkan masukan harga beli obat terlebih dahulu
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <a href="<?= base_url() ?>drugs" class="btn btn-warning">Kembali</a>
+                                            <a href="<?= base_url() ?>logoClinic" class="btn btn-warning">Kembali</a>
                                             <button type="submit" class="btn icon icon-left btn-success"><i data-feather="check-circle"></i>
                                                 Simpan</button>
                                         </div>
