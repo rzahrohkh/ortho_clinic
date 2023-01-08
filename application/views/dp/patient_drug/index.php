@@ -29,9 +29,60 @@
                 <div class="row">
                 </div>
                 <div class="card">
-                    <div class="card-header">
-                        Data Obat
-                    </div>
+                    <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <?php if (validation_errors()) : ?>
+                                        <div class="alert alert-danger alert-dismissible show fade">
+                                            <?= validation_errors() ?>
+                                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                        </div>
+                                    <?php endif; ?>
+                                    <form method="POST" action="<?= base_url() ?>PatientDrug" class="needs-validation" novalidate="">
+
+                                        <div class="form-group">
+                                            <label for="drug_name">Obat Pagi Yang Di Konsumsi</label>
+                                           <div class="form-floating">
+                                                <textarea class="form-control mb-3 summernote" name="obat_pagi" id="summernote"
+                                                    placeholder="Contoh: 1. Paracetamol, aturan minum 3x1 hari"
+                                                    id="floatingTextarea2" style="height: 100px"></textarea>
+                                            </div>
+                                            <div class="invalid-feedback">
+                                                Silahkan masukan obat pagi terlebih dahulu
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="drug_name">Obat Siang Yang Di Konsumsi</label>
+                                           <div class="form-floating">
+                                                <textarea class="form-control mb-3 summernote" name="obat_siang" id="summernote"
+                                                    placeholder="Contoh: 1. Paracetamol, aturan minum 3x1 hari"
+                                                    id="floatingTextarea2" style="height: 100px"></textarea>
+                                            </div>
+                                            <div class="invalid-feedback">
+                                                Silahkan masukan obat Siang terlebih dahulu
+                                            </div>
+                                        </div>
+                                         <div class="form-group">
+                                            <label for="drug_name">Obat Malam Yang Di Konsumsi</label>
+                                           <div class="form-floating">
+                                                <textarea class="form-control mb-3 summernote" name="obat_malam" id="summernote"
+                                                    placeholder="Contoh: 1. Paracetamol, aturan minum 3x1 hari"
+                                                    id="floatingTextarea2" style="height: 100px"></textarea>
+                                            </div>
+                                            <div class="invalid-feedback">
+                                                Silahkan masukan obat Malam terlebih dahulu
+                                            </div>
+                                        </div>
+                                      
+                                        <div class="form-group">
+                                            <a href="<?= base_url() ?>drugs" class="btn btn-warning">Kembali</a>
+                                            <button type="submit" class="btn icon icon-left btn-success"><i data-feather="check-circle"></i>
+                                                Simpan</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
                 </div>
             </div>
 

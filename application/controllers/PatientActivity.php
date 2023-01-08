@@ -16,7 +16,7 @@ class PatientActivity extends CI_Controller
 
     public function index()
     {
-        $data['title'] = 'Aktivitas Pasien';
+        $data['title'] = 'Aktivitas';
         $this->load->view('templates_dp/worker/header', $data);
         $this->load->view('templates_dp/worker/sidebar', $data);
         $this->load->view('dp/patient_activity/index', $data);

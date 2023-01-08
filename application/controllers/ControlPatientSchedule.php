@@ -16,7 +16,7 @@ class ControlPatientSchedule extends CI_Controller
 
     public function index()
     {
-        $data['title'] = 'Jadwal Kontrol Pasien';
+        $data['title'] = 'Jadwal Kontrol';
         $this->load->view('templates_dp/worker/header', $data);
         $this->load->view('templates_dp/worker/sidebar', $data);
         $this->load->view('dp/control_patient_schedule/index', $data);

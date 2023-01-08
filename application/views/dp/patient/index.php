@@ -24,6 +24,11 @@ if ($scheduleControlPatient) {
             <div class="col-12">
                 <div class="row">
 
+                <div class="flash-data-news" data-flashdata="<?= $this->session->flashdata('flash') ?>">
+                        </div>
+                        <div class="flash-data-data" data-flashdata="<?= $this->session->flashdata('data') ?>">
+                        </div>
+
                     <div class="col-6 col-lg-4 col-md-6">
                         <?php if ($isNotifScheduleControlPatient) : ?>
                             <a data-bs-toggle="modal" data-bs-target="#ControlToClinic">
