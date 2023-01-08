@@ -9,11 +9,13 @@ class Admin extends CI_Controller
 
 		$this->load->library('form_validation');
 		is_logged_in();
+		$this->load->model('SubMenu_model');
 	}
 
 	public function index()
 	{
 		$data['title'] = 'Dashboard';
+		$data['menu']= $this->SubMenu_model->get_user_sub_menu_by_role(1);
 		$this->load->view('templates_dp/worker/header', $data);
 		$this->load->view('templates_dp/worker/sidebar', $data);
 		$this->load->view('dp/admin/index', $data);
