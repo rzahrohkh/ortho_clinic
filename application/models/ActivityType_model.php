@@ -5,6 +5,10 @@ class ActivityType_model  extends CI_model // sesui dengan nama tabel di db
     {
         return $this->db->query("SELECT * FROM activity_type")->result_array();
     }
+     public function get_activity_type_all_asc()
+    {
+        return $this->db->query("SELECT * FROM activity_type  ORDER BY id_activity_type ASC")->result_array();
+    }
 
     public function get_activity_type_byID($id_activity_type)
     {

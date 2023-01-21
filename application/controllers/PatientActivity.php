@@ -4,7 +4,6 @@ defined('BASEPATH') or exit('No direct script access allowed');
 class PatientActivity extends CI_Controller
 {
     var $nameClass = "PatientActivity";
-
     public function __construct()
     {
         parent::__construct();
@@ -12,100 +11,65 @@ class PatientActivity extends CI_Controller
         $this->load->library('form_validation');
         is_logged_in();
         $this->load->model('PatientActivity_model');
+        $this->load->model('ActivityType_model');
+        $this->load->model('ActivityQuestion_model');
     }
 
     public function index()
     {
         $data['title'] = 'Aktivitas';
+        $data['dataActivityType']= $this->ActivityType_model->get_activity_type_all_asc();
         $this->load->view('templates_dp/worker/header', $data);
         $this->load->view('templates_dp/worker/sidebar', $data);
-        $this->load->view('dp/patient_activity/index', $data);
+        $this->load->view('dp/patient_activity/patient_activity_add', $data);
         $this->load->view('templates_dp/worker/footer', $data);
     }
+    public function save(){
+        $dateActivityPatient=date('Y-m-d H:i:s');
+        $idPatient=$this->session->userdata('id_patient');
+        $idActivityPatient="{$idPatient}.{$dateActivityPatient}";
+        $queryActivityType= $this->ActivityType_model->get_activity_type_all_asc();
+        $countOfDataActivityQuestion=$this->ActivityQuestion_model->get_count_activity_question_By_id_activity_type();
+        $dataAllActivityQuestion=$this->ActivityQuestion_model->get_activity_question_all();
 
-    // public function add()
-    // {
-    //     $data['title'] = 'Tambah ???';
-    //     $this->formValidation();
-    //     if ($this->form_validation->run() == false) {
-    //         $this->load->view('templates_dp/worker/header', $data);
-    //         $this->load->view('templates_dp/worker/sidebar', $data);
-    //         $this->load->view('dp/???/???_add', $data);
-    //         $this->load->view('templates_dp/worker/footer', $data);
-    //     } else {
-    //         $this->formField();
-    //         $this->Drugs_model->add_drugs($this->data_input);
-    //         swalSuccess('Ditambahkan', '???');
+        $dataAnswer=array();
+         foreach ($dataAllActivityQuestion as $dataAllActivityQuestion){
+            $idActivityType = $dataAllActivityQuestion['id_activity_type'];
+            $id_activity_question=$dataAllActivityQuestion['id_activity_question'];
+            $answer=$this->input->post($id_activity_question);
+            array_push($dataAnswer,$answer);
 
-    //         redirect($this->nameClass);
-    //     }
-    // }
+        }
+        if (in_array(!NULL, $dataAnswer)){
+            $this->db->insert("activity_patient",[
+            "id_activity_patient"=>$idActivityPatient,
+            "id_patient"=>$idPatient,
+            "date_activity_patient"=>$dateActivityPatient
+             ]);
 
-    // public function edit()
-    // {
-    //     $data['title'] = 'Edit ???';
-    //     $this->formValidation();
-    //     $id = $this->uri->segment(3, 0);
-    //     $data['dataEdit'] = $this->???_model->get_???_byID($id);
-    //     if ($this->form_validation->run() == false) {
-    //         $this->load->view('templates_dp/worker/header', $data);
-    //         $this->load->view('templates_dp/worker/sidebar', $data);
-    //         $this->load->view('dp/???/???_edit', $data);
-    //         $this->load->view('templates_dp/worker/footer', $data);
-    //     } else {
-    //         $this->formField($id);
-    //         $this->Drugs_model->update_drugs($this->data_input, $id);
-    //         swalSuccess('Diperbarui', '???');
+            foreach ($queryActivityType as $m){
+            $idActivityType = $m['id_activity_type'];
+            $dataActivityQuestion=$this->ActivityQuestion_model->get_activity_question_By_id_activity_type($idActivityType);
+            foreach ($dataActivityQuestion as $dataActivityQuestion){
+                    $id_activity_question=$dataActivityQuestion['id_activity_question'];
+                    $answer=$this->input->post($id_activity_question);
 
-    //         redirect($this->nameClass);
-    //     }
-    // }
+                    $this->db->insert("activity_answer",[
+                        "id_activity_answer"=>null,
+                        "id_activity_question"=>$id_activity_question,
+                        "answer"=>$answer,
+                        "id_activity_patient"=>$idActivityPatient
+                    ]);
+                }
+            }
+            swalSuccess('Ditambahkan', 'Aktifitas Harian Anda');
+            redirect("patient");
+        }else{ 
+            $this->session->set_flashdata('message', '<div class="alert alert-danger alert-dismissible show fade" role="alert">Aktivitas Wajib DiIsi</div>');
+            redirect($this->nameClass);
+        }
 
-    // public function delete($id)
-    // {
-    //     $this->Drugs_model->delete_drugs($id);
-    //     swalSuccess('Dihapus', '???');
-    //     redirect($this->nameClass);
-    // }
-
-    // public function formValidation()
-    // {
-    //     #field ??
-    //     $this->form_validation->set_rules('name???', 'nama field ???', 'required', [
-    //         'required'      => '??? wajib di isi'
-    //     ]);
-    // }
-    // // ??? nama field berdasarkan field name di view
-    // // penamaan dari nama kolom di database
-    // public function formField($id = NULL, $typeForm = NULL)
-    // {
-    //     // ??? penamaan dari nama kolom di database
-    //     $drug_name = $this->input->post('drug_name', true); // ??? nama kolom
-    //     $drug_type = $this->input->post('drug_type', true);
-    //     $stock = $this->input->post('stock', true);
-    //     $unit = $this->input->post('unit', true);
-    //     $exp_date = $this->input->post('exp_date', true);
-    //     $selling_price = $this->input->post('selling_price', true);
-    //     $purchase_price = $this->input->post('purchase_price', true);
-
-
-    //     // kolom lainya ???
-    //     $this->data_input = [
-    //         'id_???' => $id ? $id : NULL,
-    //         'drug_name' => $drug_name, // ??? nama kolom
-    //         'drug_type' => $drug_type,
-    //         'stock' => $stock,
-    //         'unit' => $unit,
-    //         'exp_date' => $exp_date,
-    //         'selling_price' => $selling_price,
-    //         'purchase_price' => $purchase_price,
-    //     ];
-
-    //     // jika ada kolom created_date, created_by, modifed_date, modifed_by di Database
-    //     // enable script ini addLog -> untuk tambah, editLog -> untuk edit
-
-    //     // logDataMaster('addLog');
-    //     // logDataMaster('editLog');
-    // }
-
+        
+    
+    }
 }
