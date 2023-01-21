@@ -82,6 +82,9 @@ class ActivityQuestion extends CI_Controller
         $this->form_validation->set_rules('activity_question', 'Pertanyaan Aktivitas', 'required', [
             'required'      => 'Pertanyaan Aktivitas wajib di isi'
         ]);
+        $this->form_validation->set_rules('id_activity_type', 'Tipe Aktivitas', 'required', [
+            'required'      => 'Tipe Aktivitas wajib di isi'
+        ]);
 
         // $this->form_validation->set_rules('id_activity_type', 'Tipe Aktivitas', 'required', [
         //     'required'      => 'Tipe Aktivitas wajib di isi'

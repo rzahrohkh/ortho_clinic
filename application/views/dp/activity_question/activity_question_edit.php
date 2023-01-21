@@ -47,7 +47,22 @@
                                         </div>
                                     <?php endif; ?>
                                     <form method="POST" action="<?= base_url() ?>ActivityQuestion/edit" class="needs-validation" novalidate="">
-
+                                         <div class="form-group">
+                                            <label for="menu">Tipe Aktifitas</label>
+                                            <select name="id_activity_type" id="id_activity_type" class="choices form-control">
+                                                <option disabled selected>Pilih Tipe Aktifitas</option>
+                                                <?php foreach ($activityType as $activityType) : ?>
+                                                    <?php if ($dataEdit['id_activity_type'] == $activityType['id_activity_type']) : ?>
+                                                        <option value="<?= $activityType['id_activity_type']; ?>" selected> <?= $activityType['activity_type'] ?></option>
+                                                    <?php else : ?>
+                                                        <option value="<?= $activityType['id_activity_type']; ?>"> <?= $activityType['activity_type'] ?></option>
+                                                    <?php endif ?>
+                                                <?php endforeach; ?>
+                                            </select>
+                                            <div class="invalid-feedback">
+                                                Silahkan isi tipe obat terlebih dahulu
+                                            </div>
+                                        </div>
                                         <div class="form-group">
                                             <label for="activity_question">Pertanyaan Aktivitas</label>
                                             <input type="text" class="form-control" id="basicInput" hidden readonly name="id_activity_question" value="<?= $dataEdit['id_activity_question'] ?>" require required placeholder="Masukkan Pertanyaan Aktivitas">

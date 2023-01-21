@@ -47,7 +47,18 @@
                                         </div>
                                     <?php endif; ?>
                                     <form method="POST" action="<?= base_url() ?>ActivityQuestion/add" class="needs-validation" novalidate="">
-
+                                        <div class="form-group">
+                                            <label for="menu">Tipe Aktifitas</label>
+                                            <select name="unit" id="unit" class="choices form-control">
+                                                <option disabled selected>Pilih Tipe Aktifitas</option>
+                                                <?php foreach ($activityType as $activityType) : ?>
+                                                    <option value="<?= $activityType['id_activity_type'] ?>"> <?= $activityType['activity_type'] ?></option>
+                                                <?php endforeach; ?>
+                                            </select>
+                                            <div class="invalid-feedback">
+                                                Silahkan isi tipe obat terlebih dahulu
+                                            </div>
+                                        </div>
                                         <div class="form-group">
                                             <label for="activity_question">Pertanyaan Aktivitas</label>
                                             <input type="text" class="form-control" id="basicInput" name="activity_question" require required placeholder="Masukkan Pertanyaan Altivitas">
