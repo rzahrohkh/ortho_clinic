@@ -57,6 +57,7 @@ class ActivityType extends CI_Controller
             $this->load->view('dp/activity_type/activity_type_edit', $data);
             $this->load->view('templates_dp/worker/footer', $data);
         } else {
+            $id = $this->input->post('id_activity_type', true);
             $this->formField($id);
             $this->ActivityType_model->update_activity_type($this->data_input, $id);
             swalSuccess('Diperbarui', 'Tipe Aktivitas');
