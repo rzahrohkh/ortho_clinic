@@ -16,6 +16,7 @@
                     <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="<?= base_url() ?>admin">Dashboard</a></li>
+                            <li class="breadcrumb-item"><a href="<?= base_url() ?>PatientControlScheduleManagement">Manajemen Jadwal Kontrol Pasien</a></li>
                             <li class="breadcrumb-item active" aria-current="page"><?php echo $title ?></li>
                         </ol>
                     </nav>
@@ -30,10 +31,10 @@
                 </div>
                 <div class="card">
                     <div class="card-header">
-                        Data pasien
+                        Data Pasien Nomor Rekam Medis : <?=$id?>
                     </div>
                     <div class="d-flex flex-row-reverse" style="margin-right: 3% ; margin-button: 1%;">
-                        <a href="<?= base_url(); ?>patientMaster/add" class="btn btn-success"> + Tambah Pasien Baru</a>
+                        <a href="<?= base_url(); ?>PatientControlScheduleManagement/add/<?=$id?>" class="btn btn-success"> + Tambah Jadwal Kontrol</a>
                     </div>
                     <div class="card-body">
                         <div class="flash-data-news" data-flashdata="<?= $this->session->flashdata('flash') ?>">
@@ -44,22 +45,23 @@
                             <thead>
                                 <tr>
                                     <th>#</th>
-                                    <th>Nomor Rekam Medis</th>
-                                    <th>Nama pasien</th>
+                                    <th>Tanggal Kontrol</th>
+                                    <th>Status</th>
+                                    <th>Di Buat Oleh</th>
                                     <th>Aksi</th>
-
                                 </tr>
                             </thead>
                             <tbody>
                                 <?php $i = 1; ?>
-                                <?php foreach ($patients as $patients) : ?>
+                                <?php foreach ($historyControl as $historyControl) : ?>
                                     <tr>
                                         <td><?= $i ?></td>
-                                        <td><?= $patients['id_patient'] ?></td>
-                                        <td><?= $patients['name_patient'] ?></td>
-                        
-                                        <td style="width:15% ;">
-                                            <a href="<?= base_url(); ?>PatientControlScheduleManagement/viewHistory/<?= $patients['id_patient']; ?>" class="badge bg-success">Lihat Riwayat</a>
+                                        <td><?= $historyControl['date_control_patient'] ?></td>
+                                        <td><?= $historyControl['status_control'] ?></td>
+                                        <td><?= $historyControl['created_by'] ?></td>
+                                          <td style="width:15% ;">
+                                            <a href="<?= base_url(); ?>PatientControlScheduleManagement/edit/<?= $historyControl['id_control_patient']; ?>" class="badge bg-success">Ubah</a>
+                                            <a href="<?= base_url(); ?>PatientControlScheduleManagement/delete/<?= $historyControl['id_control_patient']; ?>" class="badge bg-danger hapus-news">Hapus</a>
                                         </td>
 
                                     </tr>
