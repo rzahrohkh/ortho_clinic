@@ -35,7 +35,21 @@ class PatientMaster extends CI_Controller
         $data['title'] = 'Tambah Pasien';
         $this->formValidation();
         $this->typeForm = 'add';
-        $data['id_patient'] = $this->Patient_model->get_id_patient_new();
+        $lastData=$this->Patient_model->get_last_id();
+        $newNumber =$lastData["number"];
+        $tengah="";
+        if(((int) $newNumber)<10){
+            $tengah="000{$newNumber}";
+        }
+        if(((int) $newNumber)<100 &&((int) $newNumber)>10){
+            $tengah="00{$newNumber}";
+        }
+        if(((int) $newNumber)<1000 &&((int) $newNumber)>100){
+             $tengah=+$newNumber;
+        }
+        $data['id_patient'] = "{$lastData['date_now']}{$tengah}{$newNumber}";
+        // var_dump($data['id_patient']);
+        // die;
         $data['province'] = $this->Province_model->get_province_all();
         $data['role'] = $this->Role_model->get_role();
         if ($this->form_validation->run() == false) {
@@ -105,14 +119,23 @@ class PatientMaster extends CI_Controller
         $this->form_validation->set_rules('address_patient', 'Alamat Pasien', 'required', [
             'required'      => 'Alamat Pasien wajib di isi'
         ]);
-        $this->form_validation->set_rules('id_province', 'Provinsi Pasien', 'required', [
-            'required'      => 'Provinsi Pasien wajib di isi'
+        // $this->form_validation->set_rules('id_province', 'Provinsi Pasien', 'required', [
+        //     'required'      => 'Provinsi Pasien wajib di isi'
+        // ]);
+        // $this->form_validation->set_rules('id_city', 'Kota/Kabupaten Pasien', 'required', [
+        //     'required'      => 'Kota/Kabupaten  Pasien wajib di isi'
+        // ]);
+        // $this->form_validation->set_rules('id_district', 'Kecamatan Pasien', 'required', [
+        //     'required'      => 'Kecamatan Pasien wajib di isi'
+        // ]);
+        $this->form_validation->set_rules('phone_patient', 'Nomor Telepon Pasien', 'required', [
+            'required'      => 'Nomor Telepon Pasien wajib di isi'
         ]);
-        $this->form_validation->set_rules('id_city', 'Kota/Kabupaten Pasien', 'required', [
-            'required'      => 'Kota/Kabupaten  Pasien wajib di isi'
+        $this->form_validation->set_rules('status_perkawinan', 'Status Perkawinan Pasien', 'required', [
+            'required'      => 'Status Perkawinan Pasien wajib di isi'
         ]);
-        $this->form_validation->set_rules('id_district', 'Kecamatan Pasien', 'required', [
-            'required'      => 'Kecamatan Pasien wajib di isi'
+        $this->form_validation->set_rules('pekerjaan', 'Pekerjaan Pasien', 'required', [
+            'required'      => 'Pekerjaan Pasien wajib di isi'
         ]);
     }
     // ??? nama field berdasarkan field name di view
@@ -135,6 +158,9 @@ class PatientMaster extends CI_Controller
         $id_city = $this->input->post('id_city', true);
         $id_district = $this->input->post('id_district', true);
         $is_active = $this->input->post('is_active', true);
+        $phone_patient = $this->input->post('phone_patient', true);
+        $status_perkawinan = $this->input->post('status_perkawinan', true);
+        $pekerjaan = $this->input->post('pekerjaan', true);
 
 
         // kolom lainya ???
@@ -150,6 +176,9 @@ class PatientMaster extends CI_Controller
             'role_id' => $role_id,
             'id_province' => $id_province,
             'id_city' => $id_city,
+            'phone_patient' => $phone_patient,
+            'status_perkawinan' => $status_perkawinan,
+            'pekerjaan' => $pekerjaan,
             'id_district' => $id_district,
             'is_active' => $is_active == "on" ? "1" : "0",
 

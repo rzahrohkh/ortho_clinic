@@ -52,7 +52,7 @@
                                             <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">No Rekam
                                                 Medis</label>
                                             <div class="col-sm-12 col-md-7">
-                                                <input type="text" name="id_patient" value="<?= $id_patient["id_patient"] ?>" class="form-control" readonly autofocus placeholder="Masukan nomor rekam medis" tabindex="1">
+                                                <input type="text" name="id_patient" value="<?= $id_patient?>" class="form-control" readonly autofocus placeholder="Masukan nomor rekam medis" tabindex="1">
                                                 <div class="invalid-feedback">
                                                     Nomor rekam medis tidak boleh kosong
                                                 </div>
@@ -112,7 +112,39 @@
                                                 </div>
                                             </div>
                                         </div>
-
+                                        <div class="form-group row mb-4">
+                                            <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Status Perkawinan</label>
+                                            <div class="col-sm-12 col-md-7">
+                                                <select class="custom-select choices form-control" required autofocus name="status_perkawinan">
+                                                    <option selected disabled>Pilih Status Perkawinan</option>
+                                                    <option value="Belum Kawin">Belum Kawin</option>
+                                                    <option value="Kawin">Kawin</option>
+                                                    <option value="Janda">Janda</option>
+                                                    <option value="Duda">Duda</option>
+                                                </select>
+                                                <div class="invalid-feedback">
+                                                   Status Perkawinan tidak boleh kosong
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row mb-4">
+                                            <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Nomor Telepon</label>
+                                            <div class="col-sm-12 col-md-7">
+                                                <input type="text" name="phone_patient" class="form-control" required autofocus placeholder="Masukan nomor telepon" tabindex="1">
+                                                <div class="invalid-feedback">
+                                                    Silahkan isi nomor telephone pasien
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row mb-4">
+                                            <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Pekerjaan</label>
+                                            <div class="col-sm-12 col-md-7">
+                                                <input type="text" name="pekerjaan" class="form-control" required autofocus placeholder="Masukan pekerjaan" tabindex="1">
+                                                <div class="invalid-feedback">
+                                                    Silahkan isi pekerjaan pasien
+                                                </div>
+                                            </div>
+                                        </div>
                                         <div class="form-group row mb-4">
                                             <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Provinsi</label>
                                             <div class="col-sm-12 col-md-7">
@@ -131,8 +163,6 @@
                                             <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Kota/Kabupaten</label>
                                             <div class="col-sm-12 col-md-7">
                                                 <select class="custom-select form-control id_city" required autofocus name="id_city" id="id_city">
-
-
                                                 </select>
                                                 <div class="invalid-feedback">
                                                     Kota tidak boleh kosong

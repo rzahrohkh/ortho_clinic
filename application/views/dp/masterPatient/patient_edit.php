@@ -120,7 +120,55 @@
                                                 </div>
                                             </div>
                                         </div>
-
+                                            <div class="form-group row mb-4">
+                                            <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Status Perkawinan</label>
+                                            <div class="col-sm-12 col-md-7">
+                                                <select class="custom-select choices form-control" required autofocus name="status_perkawinan">
+                                                    <option selected disabled>Pilih Status Perkawinan</option>
+                                                     <?php if ($dataEdit['status_perkawinan'] == "Belum Kawin") : ?>
+                                                    <option value="Belum Kawin" selected>Belum Kawin</option>
+                                                     <?php else : ?>
+                                                    <option value="Belum Kawin">Belum Kawin</option>
+                                                    <?php endif ?>
+                                                    <?php if ($dataEdit['status_perkawinan'] == "Kawin") : ?>
+                                                    <option value="Kawin" selected>Kawin</option>
+                                                    <?php else : ?>
+                                                    <option value="Kawin">Kawin</option>
+                                                    <?php endif ?>
+                                                    <?php if ($dataEdit['status_perkawinan'] == "Janda") : ?>
+                                                    <option value="Janda" selected>Janda</option>
+                                                     <?php else : ?>
+                                                    <option value="Janda">Janda</option>
+                                                     <?php endif ?>
+                                                     <?php if ($dataEdit['status_perkawinan'] == "Janda") : ?>
+                                                    <option value="Duda" selected>Duda</option>
+                                                     <?php else : ?>
+                                                    <option value="Duda">Duda</option>
+                                                      <?php endif ?>
+                                                </select>
+                                                <div class="invalid-feedback">
+                                                   Status Perkawinan tidak boleh kosong
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row mb-4">
+                                            <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Nomor Telepon</label>
+                                            <div class="col-sm-12 col-md-7">
+                                                <input type="text" name="phone_patient" class="form-control" value="<?= $dataEdit["phone_patient"] ?>" required autofocus placeholder="Masukan nomor telepon" tabindex="1">
+                                                <div class="invalid-feedback">
+                                                    Silahkan isi nomor telephone pasien
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row mb-4">
+                                            <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Pekerjaan</label>
+                                            <div class="col-sm-12 col-md-7">
+                                                <input type="text" name="pekerjaan" class="form-control" value="<?= $dataEdit["pekerjaan"] ?>"  required autofocus placeholder="Masukan pekerjaan" tabindex="1">
+                                                <div class="invalid-feedback">
+                                                    Silahkan isi pekerjaan pasien
+                                                </div>
+                                            </div>
+                                        </div>
                                         <div class="form-group row mb-4">
                                             <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Provinsi</label>
                                             <div class="col-sm-12 col-md-7">

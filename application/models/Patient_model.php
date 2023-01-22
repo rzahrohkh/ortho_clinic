@@ -1,6 +1,16 @@
 <?php
 class Patient_model  extends CI_model // sesui dengan nama tabel di db
 {
+    public function get_last_id()
+    {
+        return $this->db->query("SELECT
+            DATE_FORMAT( DATE( NOW()), '%Y%m%d' ) date_now,
+            LEFT ( last_id_patient, 8 ) date_last,
+            RIGHT ( '201909020002', 4 )+ 1 number 
+        FROM
+            ( SELECT MAX( id_patient ) last_id_patient FROM patient ) a")->row_array();
+    }
+
     public function get_patient_all()
     {
         return $this->db->query("SELECT
