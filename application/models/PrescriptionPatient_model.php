@@ -28,7 +28,7 @@ class PrescriptionPatient_model  extends CI_model // sesui dengan nama tabel di 
     {
         return $this->db->query("SELECT * FROM prescription_patient NATURAL JOIN prescription_patient_detail NATURAL JOIN drugs WHERE id_prescription_patient=$id_prescription_patient")->result_array();
     }
-     public function get_prescription_patient_detail_and_drug($id_prescription_patient)
+    public function get_prescription_patient_detail_and_drug($id_prescription_patient)
     {
         return $this->db->query("SELECT
 	* 
@@ -65,5 +65,10 @@ WHERE
     ) {
         $this->db->update('prescription_patient', $data, ['id_prescription_patient' => $id_prescription_patient]);
         return $this->db->affected_rows();
+    }
+
+    public function get_prescription_patient_by_id($id_prescription_patient)
+    {
+        return $this->db->query("SELECT * FROM prescription_patient WHERE id_prescription_patient = $id_prescription_patient ORDER BY id_prescription_patient DESC")->row_array();
     }
 }

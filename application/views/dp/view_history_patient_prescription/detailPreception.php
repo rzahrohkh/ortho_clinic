@@ -137,7 +137,7 @@
                                     <p>:</p>
                                 </div>
                                 <div class="col-md-9">
-                                    <p><?=$medical_record["id_medical_record"]?></p>
+                                    <p><?=$prescription["id_prescription_patient"]?></p>
                                 </div>
                             </div>
                             <hr class="mt-2 mb-3"/>
@@ -149,7 +149,7 @@
                                     <p>:</p>
                                 </div>
                                 <div class="col-md-9">
-                                    <p><?=$medical_record["id_medical_record"]?></p>
+                                    <p><?=$prescription["date_prescription_patient"]?></p>
                                 </div>
                             </div>
                             <hr class="mt-2 mb-3"/>
@@ -161,7 +161,7 @@
                                     <p>:</p>
                                 </div>
                                 <div class="col-md-9">
-                                    <p>Dr. </p>
+                                    <p>Dr. <?=$doctor["name"]?></p>
                                 </div>
                             </div>
                             <hr class="mt-2 mb-3"/>
@@ -175,9 +175,7 @@
                             </div>
                             <hr class="mt-2 mb-3"/>
                             <div class="table-responsive">
-                           
-                        </div>
-                         <table class="table table-bordered mb-0">
+                           <table class="table table-bordered mb-0 table-responsive">
                                 <thead>
                                     <tr>
                                         <th>No.</th>
@@ -209,6 +207,8 @@
                                  endforeach;?>
                                 </tbody>
                             </table>
+                        </div>
+                         
                         </div> 
                         <div class="row">
                             <a href="<?= base_url() ?>ViewPatientHistory/historyPrescription/<?= $id?>" class="btn btn-warning p-1">Kembali</a>

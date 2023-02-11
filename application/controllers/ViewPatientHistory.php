@@ -139,6 +139,7 @@ class ViewPatientHistory extends CI_Controller
         $id_prescription=$words[0];
         $id=$words[1];
         $this->id_patient= $id;
+        $data['prescription'] = $this->PrescriptionPatient_model->get_prescription_patient_by_id($id_prescription);
         $data['prescription_detail'] = $this->PrescriptionPatient_model->get_prescription_patient_detail_and_drug($id_prescription);
         $name_patient = $this->Patient_model->get_patient_byID($this->id_patient )["name_patient"];
         $data['id']=$id;
