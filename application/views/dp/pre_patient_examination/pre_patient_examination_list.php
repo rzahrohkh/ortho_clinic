@@ -39,44 +39,46 @@
             <div class="col-12">
                 <div class="row">
                     <?php
-                    $this->load->view('dp/view_history_patient_medical_record/menu_detail_patient');
+                    $this->load->view('dp/pre_patient_examination/menu_detail_patient');
                     ?>
                 </div>
                 
                 <div class="card">
                     <div class="card-header">
-                        Riwayat rekam medis pasien
+                        Riwayat pemeriksaan awal pasien
                     </div>
-                    
+                    <div class="d-flex flex-row-reverse" style="margin-right: 3% ; margin-button: 1%;">
+                        <a href="<?= base_url(); ?>PrePatientExamination/add/<?=$id?>" class="btn btn-success"> + Buat Pemeriksaan Awal Baru</a>
+                    </div>
                      <div class="card-body">
+                        <div class="flash-data-news" data-flashdata="<?= $this->session->flashdata('flash') ?>">
+                        </div>
+                        <div class="flash-data-data" data-flashdata="<?= $this->session->flashdata('data') ?>">
+                        </div>
                           <table class="table table-striped table-responsive" id="table1">
                             <thead>
                                 <tr>
                                     <th>#</th>
-                                    <th>No Rekam Medis</th>
-                                    <th>Tanggal Pemeriksaan</th>
-                                    <th>Tipe Penanganan</th>
-                                    <th>Ditangani eleh</th>
-                                    <th>Status Penanganan</th>
+                                    <th>No Pemeriksaan Awal</th>
+                                    <th>Ditangani oleh id perawat</th>
+                                   
                                     <th>Aksi</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <?php $i = 1; ?>
-                              <?php foreach ($medicalRecord as $medicalRecord) : ?>
-                                  <tr>
+                              <?php foreach ($preMedicalRecord as $preMedicalRecord) : ?>
+                                   <tr>
                                     <td><?= $i ?></td>
-                                    <td><?= $medicalRecord['id_medical_record'] ?></td>
-                                    <td><?= $medicalRecord['inspection_date'] ?></td>
-                                    <td><?= $medicalRecord['type_handling'] ?></td>
-                                    <td>Dr. <?= $medicalRecord['name']?$medicalRecord['name']:'-' ?></td>
-                                    <td><?= ucwords($medicalRecord['status_medical_record']) ?></td>
+                                    <td><?= $preMedicalRecord['id_pre_medical_record'] ?></td>
+                                    <td><?= $preMedicalRecord['id_user'] ?></td>
                                     
                                     <td style="width:25% ;">
-                                            <a href="<?= base_url(); ?>ViewPatientHistory/detailMedicalRecord/<?= $medicalRecord['id_medical_record'] ?>" class="badge bg-success">Lihat detail rekam medis</a>
+                                            <a href="<?= base_url(); ?>PrePatientExamination/detailPreMedicalRecord/<?= $preMedicalRecord['id_pre_medical_record'] ?>" class="badge bg-success">Lihat detail</a>
+                                            <a href="<?= base_url(); ?>PrePatientExamination/edit/<?= $preMedicalRecord['id_pre_medical_record']; ?>" class="badge bg-warning">Ubah</a>
+                                            <a href="<?= base_url(); ?>PrePatientExamination/delete/<?= $preMedicalRecord['id_pre_medical_record']; ?>" class="badge bg-danger hapus-news">Hapus</a>
                                     </td>
-                                   </tr>
-                            </thead>  
+                                     </tr>
                                 <?php $i++; ?>
                                 <?php endforeach; ?>
                             </tbody>

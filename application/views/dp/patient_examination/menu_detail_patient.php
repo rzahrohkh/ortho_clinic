@@ -13,17 +13,20 @@
                 <a class="nav-link" href="<?=base_url()?>ViewPatientHistory/historyMedicalRecord/<?=$id?>">Riwayat Rekam Medis</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link " href="<?=base_url()?>ViewPatientHistory/historyActivity/<?=$id?>">Riwayat
+                <a class="nav-link" href="<?=base_url()?>ViewPatientHistory/historyActivity/<?=$id?>">Riwayat
                     Aktifitas</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link active"
+                <a class="nav-link"
                     href="<?=base_url()?>ViewPatientHistory/historyPrescription/<?=$id?>">Riwayat Resep
                     Dokter</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="<?=base_url()?>ViewPatientHistory/historyMedicine/<?=$id?>">Obat Yang Sedang
                     Dikonsumsi</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active" href="<?=base_url()?>ViewPatientHistory/historyMedicine/<?=$id?>">Pemeriksaan Pasien</a>
             </li>
             <!-- <li class="nav-item">
                 <a class="nav-lin btn btn-outline-danger"
@@ -37,14 +40,14 @@
         ?>
         <ul class="nav nav-pills">
             <li class="nav-item ">
-                <a class="nav-link active" href="<?=base_url()?>ViewPatientHistory/detailPatient/<?=$id?>">Data
+                <a class="nav-link" href="<?=base_url()?>ViewPatientHistory/detailPatient/<?=$id?>">Data
                     Pribadi Pasien</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="<?=base_url()?>ViewPatientHistory/historyMedicalRecord/<?=$id?>">Riwayat Rekam Medis</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link " href="<?=base_url()?>ViewPatientHistory/historyActivity/<?=$id?>">Riwayat
+                <a class="nav-link" href="<?=base_url()?>ViewPatientHistory/historyActivity/<?=$id?>">Riwayat
                     Aktifitas</a>
             </li>
             <!-- <li class="nav-item">
@@ -63,15 +66,15 @@
                 <a class="nav-link" href="<?=base_url()?>ViewPatientHistory/detailPatient/<?=$id?>">Data
                     Pribadi Pasien</a>
             </li>
-            <li class="nav-item">
+             <li class="nav-item">
                 <a class="nav-link" href="<?=base_url()?>ViewPatientHistory/historyMedicalRecord/<?=$id?>">Riwayat Rekam Medis</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link " href="<?=base_url()?>ViewPatientHistory/historyActivity/<?=$id?>">Riwayat
+                <a class="nav-link" href="<?=base_url()?>ViewPatientHistory/historyActivity/<?=$id?>">Riwayat
                     Aktifitas</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link active"
+                <a class="nav-link"
                     href="<?=base_url()?>ViewPatientHistory/historyPrescription/<?=$id?>">Riwayat Resep
                     Dokter</a>
             </li>
@@ -79,8 +82,8 @@
                 <a class="nav-link" href="<?=base_url()?>ViewPatientHistory/historyMedicine/<?=$id?>">Obat yang sedang
                     dikonsumsi</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="<?=base_url()?>PrePatientExamination/listPrePatientExamination/<?=$id?>">Riwayat Pemerikaan Awal</a>
+             <li class="nav-item">
+                <a class="nav-link active" href="<?=base_url()?>PrePatientExamination/listPrePatientExamination/<?=$id?>">Riwayat Pemerikaan Awal</a>
             </li>
         </ul>
         <?php

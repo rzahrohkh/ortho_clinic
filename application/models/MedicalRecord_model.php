@@ -5,9 +5,35 @@ class MedicalRecord_model  extends CI_model // sesui dengan nama tabel di db
     {
         return $this->db->query("SELECT * FROM medical_record")->result_array();
     }
+    public function get_inspection_patient()
+    {
+        return $this->db->query("SELECT
+	medical_record.*,
+	patient.name_patient,
+	user.name preInspectionBy,
+	user1.name inspectionBy
+FROM
+	medical_record
+	LEFT JOIN patient ON medical_record.id_patient = patient.id_patient 
+	LEFT JOIN pre_medical_record ON pre_medical_record.id_pre_medical_record=medical_record.id_pre_medical_record
+	LEFT JOIN user ON pre_medical_record.id_user=user.id_user
+	LEFT JOIN user user1 ON medical_record.modifed_by=user1.id_user
+WHERE
+	status_medical_record IN ( 'belum diperiksa', 'resep belum dibuat' ) ORDER BY created_date DESC")->result_array();
+    }
     public function get_medical_record_by_id_patient($id_patient)
     {
-        return $this->db->query("SELECT medical_record.*, user.name FROM medical_record LEFT JOIN user ON medical_record.modifed_by = user.id_user WHERE medical_record.id_patient=$id_patient ORDER BY medical_record.inspection_date DESC")->result_array();
+        return $this->db->query("SELECT medical_record.*, user.name FROM medical_record LEFT JOIN user ON medical_record.modifed_by = user.id_user WHERE medical_record.id_patient=$id_patient AND medical_record.status_medical_record IN ( 'sudah diperiksa', 'resep belum dibuat' ) ORDER BY medical_record.inspection_date DESC")->result_array();
+    }
+    public function get_last_id()
+    {
+        $result=1;
+        $last_id =$this->db->query("SELECT MAX(id_pre_medical_record) id_pre_medical_record  FROM pre_medical_record")->row_array()['id_pre_medical_record'];
+        if($last_id){
+            $result=$last_id+1;
+        }
+
+        return $result;
     }
     public function get_medical_record_byID($id_medical_record)
     {

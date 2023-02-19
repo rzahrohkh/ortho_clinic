@@ -63,7 +63,9 @@
                 <a class="nav-link" href="<?=base_url()?>ViewPatientHistory/detailPatient/<?=$id?>">Data
                     Pribadi Pasien</a>
             </li>
-           
+           <li class="nav-item">
+                <a class="nav-link" href="<?=base_url()?>ViewPatientHistory/historyMedicalRecord/<?=$id?>">Riwayat Rekam Medis</a>
+            </li>
             <li class="nav-item">
                 <a class="nav-link " href="<?=base_url()?>ViewPatientHistory/historyActivity/<?=$id?>">Riwayat
                     Aktifitas</a>
@@ -77,7 +79,9 @@
                 <a class="nav-link active" href="<?=base_url()?>ViewPatientHistory/historyMedicine/<?=$id?>">Obat yang sedang
                     dikonsumsi</a>
             </li>
-      
+            <li class="nav-item">
+                <a class="nav-link" href="<?=base_url()?>PrePatientExamination/listPrePatientExamination/<?=$id?>">Riwayat Pemerikaan Awal</a>
+            </li>
         </ul>
         <?php
         endif;
