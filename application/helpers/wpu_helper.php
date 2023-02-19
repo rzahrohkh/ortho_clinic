@@ -22,7 +22,8 @@ function is_logged_in()
         if ($userAccess->num_rows() < 1) {
             redirect('forbidden');
         }
-    } else  if ($season_user) {
+    } 
+    if ($season_user) {
         $role_id = $ci->session->userdata('role_id');
         $menu = $ci->uri->segment(1);
 
@@ -33,12 +34,11 @@ function is_logged_in()
             'id_role' => $role_id,
             'id_user_menu' => $menu_id
         ]);
-
-        if ($userAccess->num_rows() < 1) {
-            redirect('forbidden');
+        if ($userAccess->num_rows()<1) {
+            // redirect('forbidden');
         }
     } else {
-        redirect('auth');
+        // redirect('auth');
     }
 }
 
