@@ -1,0 +1,46 @@
+<?php
+class MedicalRecord_model  extends CI_model // sesui dengan nama tabel di db
+{
+    public function get_medical_record_all()
+    {
+        return $this->db->query("SELECT * FROM medical_record")->result_array();
+    }
+    public function get_medical_record_by_id_patient($id_patient)
+    {
+        return $this->db->query("SELECT medical_record.*, user.name FROM medical_record LEFT JOIN user ON medical_record.modifed_by = user.id_user WHERE medical_record.id_patient=$id_patient ORDER BY medical_record.inspection_date DESC")->result_array();
+    }
+    public function get_medical_record_byID($id_medical_record)
+    {
+        return $this->db->query("SELECT 
+	medical_record.id_medical_record,
+	medical_record.inspection_date,
+	medical_record.inspection_fees,
+	medical_record.diagnosis,
+	medical_record.type_handling,
+	medical_record.status_medical_record,
+	medical_record.handling,
+	medical_record.id_patient,
+	medical_record.created_by created_by_medical_record,
+	medical_record.modifed_by modifed_by_medical_record,
+    pre_medical_record.*,
+	medical_record.created_date created_date_medical_record FROM  medical_record LEFT JOIN pre_medical_record ON medical_record.id_pre_medical_record=pre_medical_record.id_pre_medical_record WHERE medical_record.id_medical_record=$id_medical_record")->row_array();
+    }
+    public function delete_medical_record($id_medical_record)
+    {
+        $this->db->where('id_medical_record', $id_medical_record);
+        $this->db->delete('medical_record');
+    }
+
+    public function add_medical_record($data)
+    {
+        $this->db->insert('medical_record', $data);
+    }
+
+    public function update_medical_record(
+        $data,
+        $id_medical_record
+    ) {
+        $this->db->update('medical_record', $data, ['id_medical_record' => $id_medical_record]);
+        return $this->db->affected_rows();
+    }
+}

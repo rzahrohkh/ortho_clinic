@@ -16,6 +16,8 @@ class ViewPatientHistory extends CI_Controller
         $this->load->model('DrugPatient_model');
         $this->load->model('PrescriptionPatient_model');
         $this->load->model('User_model');
+        $this->load->model('ActivityPatient_model');
+        $this->load->model('MedicalRecord_model');
     }
 
     public function index()
@@ -145,12 +147,82 @@ class ViewPatientHistory extends CI_Controller
         $data['id']=$id;
         $data['title'] = "Detail Resep Resep Pasien : $name_patient";
         $data['medical_record'] = $this->PrescriptionPatient_model->get_prescription_patient_and_medical_record_by_id($id_prescription);
-        $idDoctor=  $data['medical_record'] ["created_by_medical_record"];
+        $idDoctor=  $data['medical_record'] ["modifed_by_medical_record"];
+        $idNurse=  $data['medical_record'] ["id_user"];
         $data['doctor'] = $this->User_model->get_user_byID($idDoctor);
+        $data['nurse'] = $this->User_model->get_user_byID($idNurse);
         $data = $this->getDataUser($data);
         $this->load->view('templates_dp/worker/header', $data);
         $this->load->view('templates_dp/worker/sidebar', $data);
         $this->load->view('dp/view_history_patient_prescription/detailPreception', $data);
+        $this->load->view('templates_dp/worker/footer', $data);
+    }
+
+    public function historyActivity(){
+        $id = $this->uri->segment(3, 0);
+        $this->id_patient=$id;
+        $name_patient = $this->Patient_model->get_patient_byID($id)["name_patient"];
+        $data['id']=$id;
+        $data['activities'] = $this->ActivityPatient_model->get_activity_answer_all_by_id_patient($id);
+        $data['title'] = "Riwayat Aktifitas Pasien : $name_patient";
+        $data = $this->getDataUser($data);
+        $this->load->view('templates_dp/worker/header', $data);
+        $this->load->view('templates_dp/worker/sidebar', $data);
+        $this->load->view('dp/view_history_patient_activity/index', $data);
+        $this->load->view('templates_dp/worker/footer', $data);
+    }
+
+    public function detailActivities(){
+        $uri = $this->uri->segment(3, 0);
+        $delimiter = '.';
+        $words = explode($delimiter,$uri);
+        $id =str_replace("%"," ",$uri);
+        if(strpos($id, " 20") !== false){
+            $id =str_replace(" 20"," ",$id);
+        }
+    
+        $this->id_patient= $words[0];
+        $name_patient = $this->Patient_model->get_patient_byID($this->id_patient)["name_patient"];
+        $data['id']=$this->id_patient;
+        $data['id_activity_patient']=$id;
+        $data['title'] = "Detail Aktifitas Pasien : $name_patient";
+        $data = $this->getDataUser($data);
+        $this->load->view('templates_dp/worker/header', $data);
+        $this->load->view('templates_dp/worker/sidebar', $data);
+        $this->load->view('dp/view_history_patient_activity/detailActivities', $data);
+        $this->load->view('templates_dp/worker/footer', $data);
+    }
+
+    public function historyMedicalRecord(){
+        $id = $this->uri->segment(3, 0);
+        $this->id_patient=$id;
+        $name_patient = $this->Patient_model->get_patient_byID($id)["name_patient"];
+        $data['id']=$id;
+        $data['medicalRecord'] = $this->MedicalRecord_model->get_medical_record_by_id_patient($id);
+        $data['title'] = "Riwayat Rekam Medis Pasien : $name_patient";
+        $data = $this->getDataUser($data);
+        $this->load->view('templates_dp/worker/header', $data);
+        $this->load->view('templates_dp/worker/sidebar', $data);
+        $this->load->view('dp/view_history_patient_medical_record/index', $data);
+        $this->load->view('templates_dp/worker/footer', $data);
+    }
+
+     public function detailMedicalRecord(){
+        $id = $this->uri->segment(3, 0);
+        $data['medicalRecord'] = $this->MedicalRecord_model->get_medical_record_byID($id);
+        $this->id_patient=$data['medicalRecord']['id_patient'];
+        $name_patient = $this->Patient_model->get_patient_byID($this->id_patient)["name_patient"];
+        $idDoctor=  $data['medicalRecord'] ["modifed_by_medical_record"];
+        $idNurse=  $data['medicalRecord'] ["id_user"];
+        $data['doctor'] = $this->User_model->get_user_byID($idDoctor);
+        $data['nurse'] = $this->User_model->get_user_byID($idNurse);
+        $data['id']=$this->id_patient;
+        $data['inspectionFee']=rupiah($data['medicalRecord']['inspection_fees']);
+        $data['title'] = "Detail Rekam Medis Pasien : $name_patient";
+        $data = $this->getDataUser($data);
+        $this->load->view('templates_dp/worker/header', $data);
+        $this->load->view('templates_dp/worker/sidebar', $data);
+        $this->load->view('dp/view_history_patient_medical_record/detailMedicalRecord', $data);
         $this->load->view('templates_dp/worker/footer', $data);
     }
 }

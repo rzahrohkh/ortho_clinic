@@ -87,3 +87,9 @@ function tgl_indo($tanggal)
     $pecahkan = explode('-', $tanggal);
     return $pecahkan[2] . ' ' . $bulan[(int)$pecahkan[1]] . ' ' . $pecahkan[0];
 }
+
+function rupiah ($angka) {
+    $hasil = 'Rp ' . number_format($angka, 2, ",", ".");
+    return $hasil;
+}
+

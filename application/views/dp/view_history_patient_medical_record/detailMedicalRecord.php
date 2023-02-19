@@ -27,7 +27,7 @@
                             endif;
                             ?>
                             <li class="breadcrumb-item"><a href="<?= base_url() ?>ViewPatientHistory">Lihat Riwayat Pasien</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Detail Resep Pasien</li>
+                            <li class="breadcrumb-item active" aria-current="page">Detail Rekam Medis Pasien</li>
                         </ol>
                     </nav>
                 </div>
@@ -40,19 +40,17 @@
                
                 
                 <div class="card">
-                    <div class="card-header">
-                        Detail Resep
-                    </div>
+                    <!-- <div class="card-header">
+                        Detail Rekam Medis Pasien
+                    </div> -->
                     
                      <div class="card-body">
-                        <div class="row-8 mb-4">
+                        <div class="row">
+                            <div class="row-8 mb-4">
                             <button type="button" class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#preMedicalRecord">
                                 Lihat Pemeriksaan Awal
                             </button>
-                           <button type="button" class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#medicalRecord">
-                                Lihat Detail Rekam Medis
-                            </button>
-                           
+                            </div>
                             <div class="modal fade  modal-xl" id="preMedicalRecord" tabindex="-1" role="dialog"
                                 aria-labelledby="medicalRecordTitle" aria-hidden="true">
                                 <div class="modal-dialog modal-dialog-scrollable" role="document">
@@ -73,7 +71,7 @@
                                                     <p>:</p>
                                                 </div>
                                                  <div class="col-md-9">
-                                                    <p><?=$medical_record["id_pre_medical_record"]?></p>
+                                                    <p><?=$medicalRecord["id_pre_medical_record"]?></p>
                                                 </div>
                                             </div>
                                             <hr class="mt-2 mb-3"/>
@@ -97,7 +95,7 @@
                                                     <p>:</p>
                                                 </div>
                                                  <div class="col-md-9">
-                                                    <p><?=ucwords($medical_record["tension"])?></p>
+                                                    <p><?=ucwords($medicalRecord["tension"])?></p>
                                                 </div>
                                             </div>
                                              <hr class="mt-2 mb-3"/>
@@ -109,7 +107,7 @@
                                                     <p>:</p>
                                                 </div>
                                                  <div class="col-md-9">
-                                                    <p><?=$medical_record["blood_sugar"]?></p>
+                                                    <p><?=$medicalRecord["blood_sugar"]?></p>
                                                 </div>
                                             </div>
                                              <hr class="mt-2 mb-3"/>
@@ -121,7 +119,7 @@
                                                     <p>:</p>
                                                 </div>
                                                  <div class="col-md-9">
-                                                     <p><?=$medical_record["weight"]?></p>
+                                                     <p><?=$medicalRecord["weight"]?></p>
                                                 </div>
                                             </div>
                                              <hr class="mt-2 mb-3"/>
@@ -133,7 +131,7 @@
                                                     <p>:</p>
                                                 </div>
                                                 <div class="col-md-9">
-                                                    <p><?=$medical_record["gout"]?></p>
+                                                    <p><?=$medicalRecord["gout"]?></p>
                                                 </div>
                                             </div>
                                             <hr class="mt-2 mb-3"/>
@@ -145,7 +143,7 @@
                                                     <p>:</p>
                                                 </div>
                                                 <div class="col-md-9">
-                                                    <p> <?=$medical_record["cholesterol"]?$medical_record["cholesterol"]:'-'?></p>
+                                                    <p> <?=$medicalRecord["cholesterol"]?$medicalRecord["cholesterol"]:'-'?></p>
                                                 </div>
                                             </div>
                                             
@@ -155,14 +153,14 @@
                                                  <h4 for=""><span style="font-size:medium">Alergi Obat</span></h4>
                                             </div>
                                             <p>
-                                               <?=$medical_record["medicine_allergy"]?$medical_record["medicine_allergy"]:'-'?>
+                                               <?=$medicalRecord["medicine_allergy"]?$medicalRecord["medicine_allergy"]:'-'?>
                                             </p>
                                             <hr class="mt-2 mb-3"/>
                                             <div class="row">
                                                  <h4 for=""><span style="font-size:medium">Keluhan Pasien</span></h4>
                                             </div>
                                             <p>
-                                               <?=$medical_record["patient_complaints"]?$medical_record["patient_complaints"]:'-'?>
+                                               <?=$medicalRecord["patient_complaints"]?$medicalRecord["patient_complaints"]:'-'?>
                                             </p>
                                             
                                            
@@ -177,19 +175,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="modal fade  modal-xl" id="medicalRecord" tabindex="-1" role="dialog"
-                                aria-labelledby="medicalRecordTitle" aria-hidden="true">
-                                <div class="modal-dialog modal-dialog-scrollable" role="document">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h5 class="modal-title" id="medicalRecordTitle">Detail Rekam Medis</h5>
-                                            <button type="button" class="close" data-bs-dismiss="modal"
-                                                aria-label="Close">
-                                                <i data-feather="x"></i>
-                                            </button>
-                                        </div>
-                                        <div class="modal-body">
-                                           <div class="row">
+                              <div class="row">
                                                 <div class="col-md-2">
                                                     <h4 for=""><span style="font-size:medium">Nomor Rekam Medis </span></h4>
                                                 </div>
@@ -197,7 +183,7 @@
                                                     <p>:</p>
                                                 </div>
                                                  <div class="col-md-9">
-                                                    <p><?=$medical_record["id_medical_record"]?></p>
+                                                    <p><?=$medicalRecord["id_medical_record"]?></p>
                                                 </div>
                                             </div>
                                              <hr class="mt-2 mb-3"/>
@@ -209,7 +195,7 @@
                                                     <p>:</p>
                                                 </div>
                                                  <div class="col-md-9">
-                                                    <p><?=ucwords($medical_record["status_medical_record"])?></p>
+                                                    <p><?=ucwords($medicalRecord["status_medical_record"])?></p>
                                                 </div>
                                             </div>
                                              <hr class="mt-2 mb-3"/>
@@ -221,7 +207,7 @@
                                                     <p>:</p>
                                                 </div>
                                                  <div class="col-md-9">
-                                                    <p><?=$medical_record["inspection_date"]?></p>
+                                                    <p><?=$medicalRecord["inspection_date"]?></p>
                                                 </div>
                                             </div>
                                              <hr class="mt-2 mb-3"/>
@@ -233,7 +219,7 @@
                                                     <p>:</p>
                                                 </div>
                                                  <div class="col-md-9">
-                                                     <p><?=$medical_record["type_handling"]?></p>
+                                                     <p><?=$medicalRecord["type_handling"]?></p>
                                                 </div>
                                             </div>
                                              <hr class="mt-2 mb-3"/>
@@ -250,116 +236,37 @@
                                             </div>
                                             <hr class="mt-2 mb-3"/>
                                             <div class="row">
+                                                <div class="col-md-2">
+                                                    <h4 for=""><span style="font-size:medium">Biaya Penanganan</span></h4>
+                                                </div>
+                                                <div class="col-md-1">
+                                                    <p>:</p>
+                                                </div>
+                                                <div class="col-md-9">
+                                                    <p><?=$inspectionFee?$inspectionFee:"-"?></p>
+                                                </div>
+                                            </div>
+                                            <hr class="mt-2 mb-3"/>
+                                            <div class="row">
                                                  <h4 for=""><span style="font-size:medium">Diagnosis</span></h4>
                                             </div>
                                             <p>
-                                               <?=$medical_record["diagnosis"]?$medical_record["diagnosis"]:'-'?>
+                                               <?=$medicalRecord["diagnosis"]?$medicalRecord["diagnosis"]:'-'?>
                                             </p>
                                             <hr class="mt-2 mb-3"/>
                                             <div class="row">
                                                  <h4 for=""><span style="font-size:medium">Penanganan</span></h4>
                                             </div>
                                             <p>
-                                               <?=$medical_record["handling"]?$medical_record["handling"]:'-'?>
+                                               <?=$medicalRecord["handling"]?$medicalRecord["handling"]:'-'?>
                                             </p>
                                             
                                            
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-danger"
-                                                data-bs-dismiss="modal">
-                                                <i class="bx bx-x d-block d-sm-none"></i>
-                                                <span class="d-none d-sm-block">Tutup</span>
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div> 
-                        <div class="row mb-4">
-                           <div class="row">
-                                <div class="col-md-2">
-                                    <h4 for=""><span style="font-size:medium">Nomor Resep </span></h4>
-                                </div>
-                                <div class="col-md-1">
-                                    <p>:</p>
-                                </div>
-                                <div class="col-md-9">
-                                    <p><?=$prescription["id_prescription_patient"]?></p>
-                                </div>
-                            </div>
-                            <hr class="mt-2 mb-3"/>
-                             <div class="row">
-                                <div class="col-md-2">
-                                    <h4 for=""><span style="font-size:medium">Tanggal Pembuatan Resep </span></h4>
-                                </div>
-                                <div class="col-md-1">
-                                    <p>:</p>
-                                </div>
-                                <div class="col-md-9">
-                                    <p><?=$prescription["date_prescription_patient"]?></p>
-                                </div>
-                            </div>
-                            <hr class="mt-2 mb-3"/>
-                            <div class="row">
-                                <div class="col-md-2">
-                                    <h4 for=""><span style="font-size:medium">Dibuat Oleh</span></h4>
-                                </div>
-                                <div class="col-md-1">
-                                    <p>:</p>
-                                </div>
-                                <div class="col-md-9">
-                                    <p>Dr. <?=$doctor["name"]?></p>
-                                </div>
-                            </div>
-                            <hr class="mt-2 mb-3"/>
-                            <div class="row">
-                                <div class="col-md-2">
-                                    <h4 for=""><span style="font-size:medium">Detail Resep</span></h4>
-                                </div>
-                                <div class="col-md-1">
-                                    <p>:</p>
-                                </div>
-                            </div>
-                            <hr class="mt-2 mb-3"/>
-                            <div class="table-responsive">
-                           <table class="table table-bordered mb-0 table-responsive">
-                                <thead>
-                                    <tr>
-                                        <th>No.</th>
-                                        <th>Nama Obat</th>
-                                        <th>Tipe Obat</th>
-                                        <th>Jumlah Dosis</th>
-                                        <th>Jumlah Obat</th>
-                                        <th>Penggunaan</th>
-                                        <th>Catatan</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <?php $no=1;?>
-                                     <?php foreach($prescription_detail as $prescription_detail):?>
-                                    <tr>
-                                     
-                                        <td><?=$no?></td>
-                                        <td><?=$prescription_detail['drug_name']?></td>
-                                        <td><?=$prescription_detail['drug_type']?></td>
-                                        <td><?=$prescription_detail['dose']?></td>
-                                        <td><?=$prescription_detail['amount_of_ prescription']?></td>
-                                        <td><?=$prescription_detail['usage_amount']?></td>
-                                        <td><?=$prescription_detail['note']?></td>
-                                       
-                                    </tr>
-                                    
-                                    <?php
-                                    $no++;
-                                 endforeach;?>
-                                </tbody>
-                            </table>
+                                        
+                           
                         </div>
-                         
-                        </div> 
                         <div class="row">
-                            <a href="<?= base_url() ?>ViewPatientHistory/historyPrescription/<?= $id?>" class="btn btn-warning p-1">Kembali</a>
+                            <a href="<?= base_url() ?>ViewPatientHistory/historyMedicalRecord/<?= $id?>" class="btn btn-warning">Kembali</a>
                         </div>          
                     </div>
                 </div>

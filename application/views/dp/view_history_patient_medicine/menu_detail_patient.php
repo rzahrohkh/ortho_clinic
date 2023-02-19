@@ -25,11 +25,11 @@
                 <a class="nav-link active" href="<?=base_url()?>ViewPatientHistory/historyMedicine/<?=$id?>">Obat Yang Sedang
                     Dikonsumsi</a>
             </li>
-            <li class="nav-item">
+            <!-- <li class="nav-item">
                 <a class="nav-lin btn btn-outline-danger"
                     href="<?=base_url()?>ViewPatientHistory/addPrescription/<?=$id?>"><i
                         class="fas fa-file-medical bg-outline-danger"></i> Beri Resep</a>
-            </li>
+            </li> -->
         </ul>
 
         <?php
@@ -47,11 +47,11 @@
                 <a class="nav-link " href="<?=base_url()?>ViewPatientHistory/historyActivity/<?=$id?>">Riwayat
                     Aktifitas</a>
             </li>
-            <li class="nav-item">
+            <!-- <li class="nav-item">
                 <a class="nav-lin btn btn-outline-danger"
                     href="<?=base_url()?>ViewPatientHistory/adddietmenu/<?=$id?>"><i
                         class="fas fa-file-medical bg-outline-danger"></i> Beri Menu Diet</a>
-            </li>
+            </li> -->
         </ul>
 
         <?php

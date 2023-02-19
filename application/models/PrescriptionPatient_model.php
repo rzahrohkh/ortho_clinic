@@ -13,10 +13,14 @@ class PrescriptionPatient_model  extends CI_model // sesui dengan nama tabel di 
 	prescription_patient.created_date created_date_prescription, 
 	medical_record.inspection_date,
 	medical_record.diagnosis,
+	medical_record.type_handling,
+	medical_record.status_medical_record,
 	medical_record.handling,
 	medical_record.id_patient,
 	medical_record.created_by created_by_medical_record,
-	medical_record.created_date created_date_medical_record FROM prescription_patient LEFT JOIN medical_record ON prescription_patient.id_medical_record = medical_record.id_medical_record WHERE prescription_patient.id_prescription_patient=$id")->row_array();
+	medical_record.modifed_by modifed_by_medical_record,
+    pre_medical_record.*,
+	medical_record.created_date created_date_medical_record FROM prescription_patient LEFT JOIN medical_record ON prescription_patient.id_medical_record = medical_record.id_medical_record LEFT JOIN pre_medical_record ON medical_record.id_pre_medical_record=pre_medical_record.id_pre_medical_record WHERE prescription_patient.id_prescription_patient=$id")->row_array();
     }
 
     public function get_prescription_patient_by_patient($id_patient)
