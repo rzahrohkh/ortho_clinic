@@ -77,6 +77,13 @@
                                                 Silahkan isi Sub Menu Icon terlebih dahulu
                                             </div>
                                         </div>
+                                        <div class="form-group">
+                                            <label for="menu">Note Sub Menu</label>
+                                            <input type="text" name="note" class="form-control" required autofocus placeholder="Masukkan Note Sub Menu">
+                                            <div class="invalid-feedback">
+                                                Silahkan isi Sub Menu Icon terlebih dahulu
+                                            </div>
+                                        </div>
 
                                         <div class="form-group">
                                             <label for="menu">Status Aktif Sub Menu</label>

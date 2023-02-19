@@ -43,6 +43,7 @@ class SubMenu extends CI_Controller
 			$id_user_menu = $this->input->post('id_user_menu', true);
 			$url = $this->input->post('url', true);
 			$icon = $this->input->post('icon', true);
+			$note = $this->input->post('note', true);
 			$on = $this->input->post('is_active', true);
 
 			if ($on == "on") {
@@ -56,6 +57,7 @@ class SubMenu extends CI_Controller
 				'id_user_menu' => $id_user_menu,
 				'url' => $url,
 				'icon' => $icon,
+				'note' => $note,
 				'is_active' => $is_active
 			);
 
@@ -90,6 +92,7 @@ class SubMenu extends CI_Controller
 			$id_user_menu = $this->input->post('id_user_menu', true);
 			$url = $this->input->post('url', true);
 			$icon = $this->input->post('icon', true);
+			$note = $this->input->post('note', true);
 			$on = $this->input->post('is_active', true);
 
 			if ($on == "on") {
@@ -102,6 +105,7 @@ class SubMenu extends CI_Controller
 				'id_user_menu' => $id_user_menu,
 				'url' => $url,
 				'icon' => $icon,
+				'note' => $note,
 				'is_active' => $is_active
 			);
 			$this->SubMenu_model->update_user_sub_menu($id_user_sub_menu, $data_input);
