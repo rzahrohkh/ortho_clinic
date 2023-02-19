@@ -29,16 +29,16 @@ function is_logged_in()
 
         $queryMenu = $ci->db->get_where('user_sub_menu', ['url' => $menu])->row_array();
         $menu_id = $queryMenu['id_user_menu'];
-
+       
         $userAccess = $ci->db->get_where('user_access_menu', [
             'id_role' => $role_id,
             'id_user_menu' => $menu_id
         ]);
         if ($userAccess->num_rows()<1) {
-            // redirect('forbidden');
+            redirect('forbidden');
         }
     } else {
-        // redirect('auth');
+        redirect('auth');
     }
 }
 
