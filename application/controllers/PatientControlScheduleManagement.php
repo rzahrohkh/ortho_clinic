@@ -31,6 +31,7 @@ class PatientControlScheduleManagement extends CI_Controller
         $this->id_patient=$id;
         $name_patient = $this->Patient_model->get_patient_byID($id )["name_patient"];
         $data['id']=$id;
+        $data['historyControl'] = $this->PatientControlScheduleManagement_model->get_control_patient_by_id_patient($id);
         $data['title'] = "Riwayat Kontrol Pasien : $name_patient";
         if ($this->form_validation->run() == false) {
             $this->load->view('templates_dp/worker/header', $data);
