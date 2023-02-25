@@ -23,7 +23,7 @@ function is_logged_in()
             redirect('forbidden');
         }
     } 
-    if ($season_user) {
+    else if ($season_user) {
         $role_id = $ci->session->userdata('role_id');
         $menu = $ci->uri->segment(1);
 
