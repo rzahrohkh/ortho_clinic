@@ -12,6 +12,9 @@ class PatientExamination extends CI_Controller
         $this->load->library('form_validation');
         is_logged_in();
         $this->load->model('MedicalRecord_model');
+        $this->load->model('User_model');
+        $this->load->model('Patient_model');
+        $this->load->model('PreMedicalRecord_model');
     }
 
     public function index()
@@ -44,20 +47,32 @@ class PatientExamination extends CI_Controller
 
     public function edit()
     {
-        $data['title'] = 'Diagnosa Pasien';
+        $data['title'] = 'Pemeriksaan Pasien';
         $this->formValidation();
         $id = $this->uri->segment(3, 0);
         $data['dataEdit'] = $this->MedicalRecord_model->get_medical_record_byID($id);
+        if ($data['dataEdit']) {
+            $idPatient=$data['dataEdit']['id_patient'];
+            $idPreMedicalRecord=$data['dataEdit']['id_pre_medical_record'];
+            $data['patient'] = $this->Patient_model->get_patient_byID($idPatient);
+            $data['preMedicalRecord'] = $this->PreMedicalRecord_model->get_pre_medical_record_byID($idPreMedicalRecord);
+            $idNurse=  $data['preMedicalRecord'] ["id_user"];
+            $data['nurse'] = $this->User_model->get_user_byID($idNurse);
+        }
+        if ($id) {
+            $data['id'] = $id;
+        }
         if ($this->form_validation->run() == false) {
             $this->load->view('templates_dp/worker/header', $data);
             $this->load->view('templates_dp/worker/sidebar', $data);
             $this->load->view('dp/patient_examination/patient_examination_edit', $data);
             $this->load->view('templates_dp/worker/footer', $data);
         } else {
-            $this->formField($id);
-            $this->Drugs_model->update_drugs($this->data_input, $id);
-            swalSuccess('Dibuat', 'Diagnosa');
-
+            $id_medical_record = $this->input->post('id_medical_record', true);
+            $this->formField($id_medical_record,'edit');
+            $this->MedicalRecord_model->update_medical_record($this->data_input, $id_medical_record);
+            swalSuccess('Dibuat', 'Pemeriksaan');
+            // redirect buat resep
             redirect($this->nameClass);
         }
     }
@@ -65,15 +80,21 @@ class PatientExamination extends CI_Controller
     public function delete($id)
     {
         $this->Drugs_model->delete_drugs($id);
-        swalSuccess('Dihapus', 'Diagnosa');
+        swalSuccess('Dihapus', 'Pemeriksaan');
         redirect($this->nameClass);
     }
 
     public function formValidation()
     {
         #field ??
-        $this->form_validation->set_rules('name???', 'nama field ???', 'required', [
-            'required'      => '??? wajib di isi'
+        $this->form_validation->set_rules('diagnosis', 'Diagnosa', 'required', [
+            'required'      => 'Diagnosa wajib di isi'
+        ]);
+        $this->form_validation->set_rules('handling', 'Penanganan', 'required', [
+            'required'      => 'Penanganan pasien wajib di isi'
+        ]);
+         $this->form_validation->set_rules('inspection_fees', 'inspection_fees', 'required', [
+            'required'      => 'Biaya Pemeriksaan pasien wajib di isi'
         ]);
     }
     // ??? nama field berdasarkan field name di view
@@ -81,26 +102,40 @@ class PatientExamination extends CI_Controller
     public function formField($id = NULL, $typeForm = NULL)
     {
         // ??? penamaan dari nama kolom di database
-        $drug_name = $this->input->post('drug_name', true); // ??? nama kolom
-        $drug_type = $this->input->post('drug_type', true);
-        $stock = $this->input->post('stock', true);
-        $unit = $this->input->post('unit', true);
-        $exp_date = $this->input->post('exp_date', true);
-        $selling_price = $this->input->post('selling_price', true);
-        $purchase_price = $this->input->post('purchase_price', true);
-
+        $id_medical_record = $this->input->post('id_medical_record', true); // ??? nama kolom
+        $diagnosis = $this->input->post('diagnosis', true);
+        $type_handling = "Rawat Jalan";
+        $status_medical_record = 'resep belum dibuat';
+        $handling = $this->input->post('handling', true);
+        $inspection_fees = $this->input->post('inspection_fees', true);
 
         // kolom lainya ???
         $this->data_input = [
-            'id_???' => $id ? $id : NULL,
-            'drug_name' => $drug_name, // ??? nama kolom
-            'drug_type' => $drug_type,
-            'stock' => $stock,
-            'unit' => $unit,
-            'exp_date' => $exp_date,
-            'selling_price' => $selling_price,
-            'purchase_price' => $purchase_price,
+            'id_medical_record' => $id ? $id : $id_medical_record,
+            'inspection_date' => date("Y-m-d"), // ??? nama kolom
+            'diagnosis' => $diagnosis,
+            'type_handling' => $type_handling,
+            'status_medical_record' =>  $status_medical_record,
+            'handling' => $handling,
+            'inspection_fees' => $inspection_fees,
+         
         ];
+        if ($typeForm == 'addLog') {
+			$created_date = date("Y-m-d h:i:s");
+			$created_by = $this->session->userdata('id_user');
+			array_merge($this->data_input, [
+				'created_date' => $created_date,
+				'created_by' => $created_by
+			]);
+		}
+		if ($typeForm == 'edit') {
+			$modifed_date = date("Y-m-d h:i:s");
+			$modifed_by = $this->session->userdata('id_user');
+			array_merge($this->data_input, [
+				'modifed_date' => $modifed_date,
+				'modifed_by' => $modifed_by
+			]);
+		}
     }
     
 }
