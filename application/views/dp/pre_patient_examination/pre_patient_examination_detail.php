@@ -34,7 +34,7 @@
                 <div class="row">
                     <div class="card">
                         <div class="card-header">
-                            <h4 class="card-title">Edit Pemeriksaan Awal Baru</h4>
+                            <h4 class="card-title">Detail Pemeriksaan Awal Baru</h4>
                         </div>
 
                         <div class="card-body">
@@ -51,65 +51,82 @@
                                         <div class="form-group">
                                             <label for="drug_name">Id Pasien</label>
                                             <input type="text" class="form-control" id="id_pre_medical_record" name="id_pre_medical_record" require value="<?=$dataEdit['id_pre_medical_record']?>" hidden readonly placeholder="Masukkan Id Pasien">
-                                            <input type="text" class="form-control" id="id_patient" name="id_patient" require value="<?=$dataEdit['id_patient']?>" readonly placeholder="Masukkan Id Pasien">
+                                            <!-- <input type="text" class="form-control" id="id_patient" name="id_patient" require value="<?=$dataEdit['id_patient']?>" readonly placeholder="Masukkan Id Pasien"> -->
+                                            <div><?=$dataEdit['id_patient']?></div>
                                             <div class="invalid-feedback">
                                                 Silahkan masukan id pasien terlebih dahulu
                                             </div>
                                         </div>
+                                         <hr class="mt-2 mb-3"/>
                                         <div class="form-group">
                                             <label for="drug_name">Tensi Pasien</label>
-                                            <input type="text" class="form-control" id="tension" name="tension" require required value="<?=$dataEdit['tension']?>"  placeholder="Masukkan Tensi">
+                                            <!-- <input type="text" class="form-control" id="tension" name="tension" require required value="<?=$dataEdit['tension']?>" readonly  placeholder="Masukkan Tensi"> -->
+                                            <div><?=$dataEdit['tension']?></div>
                                             <div class="invalid-feedback">
                                                 Silahkan masukan tensi terlebih dahulu
                                             </div>
                                         </div>
+                                         <hr class="mt-2 mb-3"/>
                                         <div class="form-group">
                                             <label for="drug_name">Gula Darah Pasien</label>
-                                            <input type="text" class="form-control" id="blood_sugar" name="blood_sugar" require required value="<?=$dataEdit['blood_sugar']?>" placeholder="Masukkan Gula Darah">
+                                            <!-- <input type="text" class="form-control" id="blood_sugar" name="blood_sugar" require required value="<?=$dataEdit['blood_sugar']?>" readonly placeholder="Masukkan Gula Darah"> -->
+                                            <div><?=$dataEdit['blood_sugar']?></div>
                                             <div class="invalid-feedback">
                                                 Silahkan masukan gula darah terlebih dahulu
                                             </div>
                                         </div>
+                                         <hr class="mt-2 mb-3"/>
                                         <div class="form-group">
                                             <label for="drug_name">Berat Badan Pasien</label>
-                                            <input type="text" class="form-control" id="weight" name="weight" require required value="<?=$dataEdit['weight']?>" placeholder="Masukkan Berat Badan">
+                                            <!-- <input type="text" class="form-control" id="weight" name="weight" require required value="<?=$dataEdit['weight']?>" readonly placeholder="Masukkan Berat Badan"> -->
+                                            <div><?=$dataEdit['weight']?></div>
                                             <div class="invalid-feedback">
                                                 Silahkan masukan berat badan terlebih dahulu
                                             </div>
                                         </div>
+                                         <hr class="mt-2 mb-3"/>
                                         <div class="form-group">
                                             <label for="drug_name">Asam Urat Pasien</label>
-                                            <input type="text" class="form-control" id="gout" name="gout" require required value="<?=$dataEdit['gout']?>" placeholder="Masukkan Asam Urat">
+                                            <!-- <input type="text" class="form-control" id="gout" name="gout" require required value="<?=$dataEdit['gout']?>" readonly placeholder="Masukkan Asam Urat"> -->
+                                            <div><?=$dataEdit['gout']?></div>
                                             <div class="invalid-feedback">
                                                 Silahkan masukan asam urat terlebih dahulu
                                             </div>
                                         </div>
+                                         <hr class="mt-2 mb-3"/>
                                         <div class="form-group">
                                             <label for="drug_name">Kolestrol Pasien</label>
-                                            <input type="text" class="form-control" id="cholesterol" name="cholesterol" require required value="<?=$dataEdit['cholesterol']?>" placeholder="Masukkan Kolestrol">
+                                            <!-- <input type="text" class="form-control" id="cholesterol" name="cholesterol" require required value="<?=$dataEdit['cholesterol']?>" readonly placeholder="Masukkan Kolestrol"> -->
+                                             <div><?=$dataEdit['cholesterol']?></div>
                                             <div class="invalid-feedback">
                                                 Silahkan masukan kolestrol tensi terlebih dahulu
                                             </div>
                                         </div>
+                                         <hr class="mt-2 mb-3"/>
                                          <div class="form-group">
                                             <label for="customer_service">Alergi Obat</label>
-                                            <textarea type="text area" class="form-control summernote" id="medicine_allergy" name="medicine_allergy" require required placeholder="Masukkan Alergi Obat pasien"><?=$dataEdit['medicine_allergy']?></textarea>
+                                            <div>
+                                                <?=$dataEdit['medicine_allergy']?>
+                                            </div>
+                                            
                                             <div class="invalid-feedback">
                                                 Silahkan masukan pelayanan klinik terlebih dahulu
                                             </div>
                                         </div>
+                                         <hr class="mt-2 mb-3"/>
                                            <div class="form-group">
                                             <label for="customer_service">Keluhan Pasien</label>
-                                            <textarea type="text area" class="form-control summernote" id="patient_complaints" name="patient_complaints" require required placeholder="Masukkan Keluhan pasien"><?=$dataEdit['patient_complaints']?></textarea>
+                                            <div>
+                                                <?=$dataEdit['patient_complaints']?>
+                                            </div>
+                                            
                                             <div class="invalid-feedback">
                                                 Silahkan masukan pelayanan klinik terlebih dahulu
                                             </div>
                                         </div>
-                                    
+                                     <hr class="mt-2 mb-3"/>
                                         <div class="form-group">
                                             <a href="<?= base_url() ?>PrePatientExamination/listPrePatientExamination/<?=$id?>" class="btn btn-warning">Kembali</a>
-                                            <button id="submitBtn" disabled="disabled" type="submit" class="btn icon icon-left btn-success"><i data-feather="check-circle"></i>
-                                                Simpan Perubahan</button>
                                         </div>
                                     </form>
                                 </div>

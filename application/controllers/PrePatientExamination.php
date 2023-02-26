@@ -57,7 +57,7 @@ class PrePatientExamination extends CI_Controller
             $this->load->view('dp/pre_patient_examination/pre_patient_examination_add', $data);
             $this->load->view('templates_dp/worker/footer', $data);
         } else {
-            $this->formField();
+            $this->formField(null, "add");
             $this->PreMedicalRecord_model->add_pre_medical_record($this->data_input);
           
             $id_patient = $this->data_input['id_patient'];
@@ -94,18 +94,35 @@ class PrePatientExamination extends CI_Controller
         $this->formValidation();
         $id = $this->uri->segment(3, 0);
         $data['dataEdit'] = $this->PreMedicalRecord_model->get_pre_medical_record_byID($id);
+        if ($data['dataEdit']) {
+            $data['id']=$data['dataEdit']['id_patient'];
+        }
         if ($this->form_validation->run() == false) {
             $this->load->view('templates_dp/worker/header', $data);
             $this->load->view('templates_dp/worker/sidebar', $data);
             $this->load->view('dp/pre_patient_examination/pre_patient_examination_edit', $data);
             $this->load->view('templates_dp/worker/footer', $data);
         } else {
-            $this->formField($id);
-            $this->PreMedicalRecord_model->update_pre_medical_record($this->data_input, $id);
+            $id_pre_medical_record = $this->input->post('id_pre_medical_record', true);
+            $this->formField($id_pre_medical_record, "edit");
+            
+            $this->PreMedicalRecord_model->update_pre_medical_record($this->data_input, $id_pre_medical_record);
             swalSuccess('Diperbarui', 'Pemeriksaan awal');
 
             redirect($this->nameClass);
         }
+    }
+    public function detailPreMedicalRecord(){
+        $data['title'] = 'Edit Pemeriksaan Awal';
+        $id = $this->uri->segment(3, 0);
+        $data['dataEdit'] = $this->PreMedicalRecord_model->get_pre_medical_record_byID($id);
+        if ($data['dataEdit']) {
+            $data['id']=$data['dataEdit']['id_patient'];
+        }
+        $this->load->view('templates_dp/worker/header', $data);
+        $this->load->view('templates_dp/worker/sidebar', $data);
+        $this->load->view('dp/pre_patient_examination/pre_patient_examination_detail', $data);
+        $this->load->view('templates_dp/worker/footer', $data);
     }
 
     public function delete($id)
@@ -143,11 +160,14 @@ class PrePatientExamination extends CI_Controller
     {
         // ??? penamaan dari nama kolom di database
         $last_id=$this->PreMedicalRecord_model->get_last_id();
-        if(!$last_id){
+        if(!$last_id && $typeForm =="add"){
             $id_pre_medical_record=1;
         }
-        if($last_id){
+        if($last_id && $typeForm =="add"){
             $id_pre_medical_record=$last_id+1;
+        }
+        if($typeForm =="edit"){
+            $id_pre_medical_record=$id;
         }
         $tension = $this->input->post('tension', true); // ??? nama kolom
         $blood_sugar = $this->input->post('blood_sugar', true);
