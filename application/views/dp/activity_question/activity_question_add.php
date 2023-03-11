@@ -49,7 +49,7 @@
                                     <form method="POST" action="<?= base_url() ?>ActivityQuestion/add" class="needs-validation" novalidate="">
                                         <div class="form-group">
                                             <label for="menu">Tipe Aktifitas</label>
-                                            <select name="unit" id="unit" class="choices form-control">
+                                            <select name="id_activity_type" id="id_activity_type" class="choices form-control">
                                                 <option disabled selected>Pilih Tipe Aktifitas</option>
                                                 <?php foreach ($activityType as $activityType) : ?>
                                                     <option value="<?= $activityType['id_activity_type'] ?>"> <?= $activityType['activity_type'] ?></option>

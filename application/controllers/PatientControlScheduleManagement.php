@@ -91,7 +91,7 @@ class PatientControlScheduleManagement extends CI_Controller
         if ($this->form_validation->run() == false) {
             $this->load->view('templates_dp/worker/header', $data);
             $this->load->view('templates_dp/worker/sidebar', $data);
-             $this->load->view('dp/patient_control_schedule_management/control_patient_edit', $data);
+            $this->load->view('dp/patient_control_schedule_management/control_patient_edit', $data);
             $this->load->view('templates_dp/worker/footer', $data);
         } else {
             $this->formField($id);
@@ -139,7 +139,7 @@ class PatientControlScheduleManagement extends CI_Controller
         if($this->typeForm=='add'){
             $created_date = date("Y-m-d h:i:s");
             $created_by = $this->session->userdata('id_user');
-           $this->data_input = [
+            $this->data_input = [
             'id_control_patient' => $id ? $id : NULL,
             'id_patient' => $id_patient, // ??? nama kolom
             'date_control_patient' => $date_control_patient, // ??? nama kolom

@@ -59,7 +59,7 @@
                                         <td><?= $landingprofile['operational_hour'] ?></td>
                                         <td><?= $landingprofile['customer_service'] ?></td>
                                         <td style="width:15% ;">
-                                            <a href="<?= base_url(); ?>landingprofile/edit/<?= $landingprofile['id_profile']; ?>" class="badge bg-success">Ubah</a>
+                                            <a href="<?= base_url(); ?>landingProfile/edit/<?= $landingprofile['id_profile']; ?>" class="badge bg-success">Ubah</a>
                                             <!-- <a href="<?= base_url(); ?>LandingProfile/delete/<?= $drugs['id_profile']; ?>" class="badge bg-danger hapus-news">Hapus</a> -->
                                         </td>
 

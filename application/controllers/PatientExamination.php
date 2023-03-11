@@ -70,9 +70,17 @@ class PatientExamination extends CI_Controller
         } else {
             $id_medical_record = $this->input->post('id_medical_record', true);
             $this->formField($id_medical_record,'edit');
+            $modifed_date = date("Y-m-d h:i:s");
+			$modifed_by = $this->session->userdata('id_user');
+			$dataModifedBy =[
+				'modifed_date' => $modifed_date,
+				'modifed_by' => $modifed_by
+			];
+            $this->data_input=$this->data_input+$dataModifedBy;
+
             $this->MedicalRecord_model->update_medical_record($this->data_input, $id_medical_record);
             swalSuccess('Dibuat', 'Pemeriksaan');
-            // redirect buat resep
+
             redirect($this->nameClass);
         }
     }
@@ -112,7 +120,7 @@ class PatientExamination extends CI_Controller
         // kolom lainya ???
         $this->data_input = [
             'id_medical_record' => $id ? $id : $id_medical_record,
-            'inspection_date' => date("Y-m-d"), // ??? nama kolom
+            'inspection_date' => date("Y-m-d"), 
             'diagnosis' => $diagnosis,
             'type_handling' => $type_handling,
             'status_medical_record' =>  $status_medical_record,

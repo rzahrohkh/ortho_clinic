@@ -46,7 +46,7 @@
                                             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                                         </div>
                                     <?php endif; ?>
-                                    <form method="POST" action="<?= base_url() ?>landingprofile/edit" class="needs-validation" novalidate="">
+                                    <form method="POST" action="<?= base_url() ?>landingProfile/edit" class="needs-validation" novalidate="">
 
                                         <div class="form-group">
                                             <label for="description_profile">Deskripsi Profil</label>
@@ -73,7 +73,7 @@
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <a href="<?= base_url() ?>landingprofile" class="btn btn-warning">Kembali</a>
+                                            <a href="<?= base_url() ?>landingProfile" class="btn btn-warning">Kembali</a>
                                             <button type="submit" class="btn icon icon-left btn-success"><i data-feather="check-circle"></i>
                                                 Simpan</button>
                                         </div>

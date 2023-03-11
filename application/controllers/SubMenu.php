@@ -75,7 +75,9 @@ class SubMenu extends CI_Controller
 		$id = $this->uri->segment(3, 0);
 
 		$data['data_submenu'] = $this->SubMenu_model->get_user_sub_menu_byID($id);
-		$data['data_menu'] = $this->Menu_model->get_user_menu_byID($data['data_submenu']['id_user_menu']);
+		if($data['data_submenu']){
+		    $data['data_menu'] = $this->Menu_model->get_user_menu_byID($data['data_submenu']['id_user_menu']);
+		}
 		$this->form_validation->set_rules('id_user_menu', 'id_user_menu', 'trim|required');
 		$this->form_validation->set_rules('title', 'title', 'trim|required');
 		$this->form_validation->set_rules('url', 'url', 'trim|required');
