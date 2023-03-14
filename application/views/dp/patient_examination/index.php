@@ -69,7 +69,7 @@
 
                                            <?php if($inspections['status_medical_record']=='resep belum dibuat'):
                                             ?>
-                                            <a href="<?= base_url(); ?>patientExamination/edit/<?= $inspections['id_medical_record']; ?>" class="badge bg-success">Buat Resep</a>
+                                            <a href="<?= base_url(); ?>PrececptionNewFromMR/add/<?= $inspections['id_medical_record']; ?>|<?=$inspections['id_patient']?>" class="badge bg-success">Buat Resep</a>
                                             <?php endif;?>
                                         </td>
                                     </tr>

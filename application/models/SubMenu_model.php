@@ -9,7 +9,7 @@ class SubMenu_model extends CI_model
                                     user_sub_menu
                                     LEFT JOIN user_menu ON user_sub_menu.id_user_menu = user_menu.id_user_menu
                                     LEFT JOIN user_access_menu ON user_menu.id_user_menu=user_access_menu.id_user_menu
-                                    WHERE user_access_menu.id_role=$id_role")->result_array();
+                                    WHERE user_access_menu.id_role=$id_role AND user_sub_menu.is_active=1")->result_array();
     }
     public function get_user_sub_menu()
     {

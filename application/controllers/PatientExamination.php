@@ -15,6 +15,8 @@ class PatientExamination extends CI_Controller
         $this->load->model('User_model');
         $this->load->model('Patient_model');
         $this->load->model('PreMedicalRecord_model');
+        $this->load->model('PrescriptionPatient_model');
+        $this->load->model('Drugs_model');
     }
 
     public function index()
@@ -77,11 +79,27 @@ class PatientExamination extends CI_Controller
 				'modifed_by' => $modifed_by
 			];
             $this->data_input=$this->data_input+$dataModifedBy;
-
+            $id_user = $this->session->userdata('id_user');
             $this->MedicalRecord_model->update_medical_record($this->data_input, $id_medical_record);
+           
+            $id_patient = $this->MedicalRecord_model->get_medical_record_byID($id_medical_record)["id_patient"];
+            $preceptionPatient=[
+                'id_prescription_patient' =>"",
+                'id_user' => $id_user,
+                'date_prescription_patient' => $this->data_input['inspection_date'],
+                'status' => "Belum Input Resep",
+                'id_patient'=>$id_patient,
+                'modifed_by' => $id_user,
+                'modified_date' => $modifed_date,
+                'created_by' => $id_user,
+                'created_date' => $modifed_date,
+                'id_medical_record' => $id_medical_record,
+            ];
+            $this->PrescriptionPatient_model->add_prescription_patient($preceptionPatient);
             swalSuccess('Dibuat', 'Pemeriksaan');
 
-            redirect($this->nameClass);
+            $urlAddPreception="PrececptionNewFromMR/add/$id_medical_record|$id_patient";
+            redirect($urlAddPreception);
         }
     }
 
