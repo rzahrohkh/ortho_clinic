@@ -1,6 +1,6 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
-
+// Aplikasi Skripsi 170441100011 Roudlotuz Zahro Khoiriyah 20 Mei 2023
 class ClinicOpeningHours extends CI_Controller
 {
     var $nameClass = "ClinicOpeningHours";
@@ -54,8 +54,8 @@ class ClinicOpeningHours extends CI_Controller
             $this->load->view('dp/clinic_opening_hours/clinic_opening_hours_edit', $data);
             $this->load->view('templates_dp/worker/footer', $data);
         } else {
-            $this->formField($id);
             $id = $this->input->post('id_opening_hours', true);
+            $this->formField($id);
             $this->ClinicOpeningHours_model->update_clinic_opening_hours($this->data_input, $id);
             swalSuccess('Diperbarui', 'Jam Buka Praktek');
 

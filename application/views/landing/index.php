@@ -1,6 +1,6 @@
 <!-- ======= Beranda Section ======= -->
 <section id="beranda" class="hero d-flex align-items-center">
-
+<!-- Aplikasi Skripsi 170441100011 Roudlotuz Zahro Khoiriyah 20 Mei 2023 -->
     <div class="container">
         <div class="row">
             <div class="col-lg-6 d-flex flex-column justify-content-center">

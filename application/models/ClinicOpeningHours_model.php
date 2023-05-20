@@ -1,4 +1,5 @@
 <?php
+// Aplikasi Skripsi 170441100011 Roudlotuz Zahro Khoiriyah 20 Mei 2023
 class ClinicOpeningHours_model  extends CI_model // sesui dengan nama tabel di db
 {
     public function get_clinic_opening_hours_all()

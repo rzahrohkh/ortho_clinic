@@ -1,6 +1,6 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
-
+// Aplikasi Skripsi 170441100011 Roudlotuz Zahro Khoiriyah 20 Mei 2023
 class ServiceClinic extends CI_Controller
 {
     var $nameClass = "ServiceClinic";
@@ -54,8 +54,8 @@ class ServiceClinic extends CI_Controller
             $this->load->view('dp/service_clinic/service_edit', $data);
             $this->load->view('templates_dp/worker/footer', $data);
         } else {
-            $this->formField($id);
             $id = $this->input->post('id_service_clinic', true);
+            $this->formField($id);
             $this->ServiceClinic_model->update_service_clinic($this->data_input, $id);
             swalSuccess('Diperbarui', 'Pelayanan Klinik');
 

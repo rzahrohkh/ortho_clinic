@@ -1,4 +1,5 @@
 <?php
+// Aplikasi Skripsi 170441100011 Roudlotuz Zahro Khoiriyah 20 Mei 2023
 class LogoClinic_model  extends CI_model // sesui dengan nama tabel di db
 {
     public function get_logo_clinic_all()

@@ -1,6 +1,6 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
-
+// Aplikasi Skripsi 170441100011 Roudlotuz Zahro Khoiriyah 20 Mei 2023
 /*
 |--------------------------------------------------------------------------
 | Base Site URL
@@ -23,7 +23,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 | a PHP script and you can easily do that on your own.
 |
 */
-$config['base_url'] = 'https://zahrasite.my.id';
+$config['base_url'] = 'http://localhost/ortho_clinic';
 
 /*
 |--------------------------------------------------------------------------

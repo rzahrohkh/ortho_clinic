@@ -1,6 +1,6 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
-
+// Aplikasi Skripsi 170441100011 Roudlotuz Zahro Khoiriyah 20 Mei 2023
 class ControlPatientSchedule extends CI_Controller
 {
     var $nameClass = "ControlPatientSchedule";

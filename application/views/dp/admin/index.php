@@ -1,3 +1,4 @@
+<!-- Aplikasi Skripsi 170441100011 Roudlotuz Zahro Khoiriyah 20 Mei 2023 -->
 <?php
     function bgcolor(){ return sprintf('#%06X', mt_rand(0, 0xFFFFFF));}
 ?>
@@ -16,7 +17,7 @@
             <div class="col-12">
                 <div class="row">
                     <?php foreach($menu as $menu):?>
-                     <div class="col-6 col-lg-4 col-md-6">
+                    <div class="col-6 col-lg-4 col-md-6">
                         <a href="<?= base_url() ?><?=$menu['url']?>">
                             <div class="card" style="height: 80%;">
                                 <div class=" card-body px-4 py-4-5">

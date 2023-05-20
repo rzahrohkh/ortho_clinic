@@ -1,6 +1,6 @@
     <!-- ======= Footer ======= -->
     <footer id="footer" class="footer">
-
+<!-- Aplikasi Skripsi 170441100011 Roudlotuz Zahro Khoiriyah 20 Mei 2023 -->
         <div class="footer-top">
             <div class="container">
                 <div class="row gy-4">

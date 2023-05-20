@@ -1,3 +1,4 @@
+<!-- Aplikasi Skripsi 170441100011 Roudlotuz Zahro Khoiriyah 20 Mei 2023 -->
 <?php
     function bgcolor(){ return sprintf('#%06X', mt_rand(0, 0xFFFFFF));}
 ?>

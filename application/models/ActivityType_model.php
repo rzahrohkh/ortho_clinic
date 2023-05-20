@@ -1,11 +1,12 @@
 <?php
+// Aplikasi Skripsi 170441100011 Roudlotuz Zahro Khoiriyah 20 Mei 2023
 class ActivityType_model  extends CI_model // sesui dengan nama tabel di db
 {
     public function get_activity_type_all()
     {
         return $this->db->query("SELECT * FROM activity_type")->result_array();
     }
-     public function get_activity_type_all_asc()
+    public function get_activity_type_all_asc()
     {
         return $this->db->query("SELECT * FROM activity_type  ORDER BY id_activity_type ASC")->result_array();
     }

@@ -1,6 +1,6 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-
+// Aplikasi Skripsi 170441100011 Roudlotuz Zahro Khoiriyah 20 Mei 2023
 /*
 | -------------------------------------------------------------------
 | DATABASE CONNECTIVITY SETTINGS
@@ -75,7 +75,7 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'localhost',
+	'hostname' => '103.247.10.176',
 	'username' => 'zahq8559_zahra',
 	'password' => 'Zahra123',
 	'database' => 'zahq8559_klinik',

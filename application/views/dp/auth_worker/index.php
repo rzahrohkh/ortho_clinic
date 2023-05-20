@@ -1,3 +1,4 @@
+<!-- Aplikasi Skripsi 170441100011 Roudlotuz Zahro Khoiriyah 20 Mei 2023 -->
 <?php
 $logo = $this->db->query("SELECT logo FROM logo_clinic WHERE id_logo = 1")->row_array();
 ?>

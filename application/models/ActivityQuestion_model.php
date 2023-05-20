@@ -1,15 +1,16 @@
 <?php
+// Aplikasi Skripsi 170441100011 Roudlotuz Zahro Khoiriyah 20 Mei 2023
 class ActivityQuestion_model  extends CI_model // sesui dengan nama tabel di db
 {
     public function get_activity_question_all()
     {
         return $this->db->query("SELECT * FROM activity_question")->result_array();
     }
-     public function get_activity_question_By_id_activity_type($id_activity_type)
+    public function get_activity_question_By_id_activity_type($id_activity_type)
     {
         return $this->db->query("SELECT * FROM activity_question WHERE id_activity_type = $id_activity_type")->result_array();
     }
- public function get_count_activity_question_By_id_activity_type()
+    public function get_count_activity_question_By_id_activity_type()
     {
         return $this->db->query("SELECT count(*) countActivityQuestion FROM activity_question")->row_array();
     }
