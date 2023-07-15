@@ -24,7 +24,7 @@ WHERE
     }
     public function get_medical_record_by_id_patient($id_patient)
     {
-        return $this->db->query("SELECT medical_record.*, user.name FROM medical_record LEFT JOIN user ON medical_record.modifed_by = user.id_user WHERE medical_record.id_patient=$id_patient AND medical_record.status_medical_record IN ( 'sudah diperiksa', 'resep belum dibuat' ) ORDER BY medical_record.inspection_date DESC")->result_array();
+        return $this->db->query("SELECT medical_record.*, user.name FROM medical_record LEFT JOIN user ON medical_record.modifed_by = user.id_user WHERE medical_record.id_patient=$id_patient AND medical_record.status_medical_record IN ( 'sudah diperiksa', 'resep belum dibuat', 'resep sudah dibuat' ) ORDER BY medical_record.inspection_date DESC")->result_array();
     }
     public function get_last_id()
     {
