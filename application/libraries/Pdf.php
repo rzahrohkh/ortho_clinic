@@ -2,11 +2,15 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 require_once(dirname(__FILE__) . '/dompdf/autoload.inc.php');
-
+use Dompdf\Options;
 class Pdf
 {
     function createPDF($html, $filename='', $download=TRUE, $paper='A4', $orientation='landscape'){
-        $dompdf = new Dompdf\DOMPDF();
+        $options = new Options();
+        $options->set('isRemoteEnabled', TRUE);
+        $options->set('tempDir', '/tmp');
+        $options->set('chroot', __DIR__);
+        $dompdf = new Dompdf\DOMPDF($options);
         $dompdf->load_html($html);
         $dompdf->set_paper($paper, $orientation);
         $dompdf->render();

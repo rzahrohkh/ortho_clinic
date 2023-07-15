@@ -46,7 +46,7 @@
                 
                 <div class="card">
                     <div class="card-header">
-                        Riwayat Obat yang di konsumsi oleh pasien
+                        Riwayat Resep Obat Pasien
                     </div>
                     
                      <div class="card-body">

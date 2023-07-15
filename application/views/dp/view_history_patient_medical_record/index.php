@@ -50,6 +50,10 @@
                     </div>
                     
                      <div class="card-body">
+                        <div>
+                            <a href="<?=base_url() ?>ViewPatientHistory/generateMedicalRecordPdf/<?=$id?>" class="btn icon icon-left btn-success">
+                            Download Rekam Medis</a>
+                        </div>
                           <table class="table table-striped table-responsive" id="table1">
                             <thead>
                                 <tr>

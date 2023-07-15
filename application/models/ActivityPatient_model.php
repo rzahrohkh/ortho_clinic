@@ -11,6 +11,17 @@ class ActivityPatient_model  extends CI_model // sesui dengan nama tabel di db
         return $this->db->query("SELECT * from activity_patient WHERE id_patient=$id_patient")->result_array();
     }
 
+    public function get_activity_answer_all_by_id_patient_report($id_patient)
+    {
+        return $this->db->query("SELECT
+	* 
+FROM
+	activity_patient 
+	LEFT JOIN activity_answer ON activity_patient.id_activity_patient=activity_answer.id_activity_patient
+	LEFT JOIN activity_question ON activity_answer.id_activity_question=activity_question.id_activity_question
+	LEFT JOIN activity_type ON activity_question.id_activity_type =activity_type.id_activity_type WHERE activity_patient.id_patient=$id_patient")->result_array();
+    }
+
     public function get_activity_answer_byID($id_activity_answer)
     {
         $this->db->select('*');

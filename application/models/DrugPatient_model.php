@@ -22,6 +22,18 @@ WHERE
 ORDER BY
 	id_drugs_patient")->result_array();
     }
+
+     public function get_drug_patient_byID_patient_report_patient($id_patient)
+    {
+        return $this->db->query("SELECT 
+	*
+FROM
+	drug_patient 
+WHERE
+	drug_patient.id_patient = $id_patient 
+ORDER BY
+	drug_patient.id_drugs_patient")->result_array();
+    }
      public function get_id_patient_byID_patient($id_drugs_patient)
     {
         return $this->db->query("SELECT DISTINCT

@@ -48,8 +48,12 @@
                     <div class="card-header">
                         Riwayat Obat yang di konsumsi oleh pasien
                     </div>
-                    
+                     
                      <div class="card-body">
+                        <div>
+                            <a href="<?=base_url() ?>ViewPatientHistory/generateHistoryMedicinePdf/<?=$id?>" class="btn icon icon-left btn-success">
+                            Download Riwayat Obat Pasien</a>
+                        </div> 
                           <table class="table table-striped table-responsive" id="table1">
                             <thead>
                                 <tr>

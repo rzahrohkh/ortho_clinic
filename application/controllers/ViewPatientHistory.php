@@ -18,6 +18,7 @@ class ViewPatientHistory extends CI_Controller
         $this->load->model('User_model');
         $this->load->model('ActivityPatient_model');
         $this->load->model('MedicalRecord_model');
+        $this->load->model('LogoClinic_model');
     }
 
     public function index()
@@ -72,6 +73,15 @@ class ViewPatientHistory extends CI_Controller
         $this->load->view('dp/view_history_patient_medicine/index', $data);
         $this->load->view('templates_dp/worker/footer', $data);
     }
+     public function generateHistoryMedicinePdf($id){
+        $data['logo'] = $this->LogoClinic_model->get_logo_clinic_byID(1);
+        $data['data']=$this->Patient_model->get_patient_byID($id);
+        $data['medicines'] = $this->DrugPatient_model->get_drug_patient_byID_patient_report_patient($id);
+        $html=$this->load->view('dp/reports/historyMedicineReportView',$data,true);
+        $fileName=$this->fileNameGenerator($id,'Laporan Riwayat Obat');
+        $this->load->library('pdf');
+        $this->pdf->createPDF($html, $fileName);
+    } 
 
     public function detailMedicine(){
         $uri = $this->uri->segment(3, 0);
@@ -133,6 +143,8 @@ class ViewPatientHistory extends CI_Controller
         $this->load->view('dp/view_history_patient_prescription/index', $data);
         $this->load->view('templates_dp/worker/footer', $data);
     }
+
+   
     
     public function detailPrescription(){
         $uri = $this->uri->segment(3, 0);
@@ -172,6 +184,17 @@ class ViewPatientHistory extends CI_Controller
         $this->load->view('templates_dp/worker/footer', $data);
     }
 
+     public function generateHistoryActivityPdf($id){
+        $data['logo'] = $this->LogoClinic_model->get_logo_clinic_byID(1);
+        $data['data']=$this->Patient_model->get_patient_byID($id);
+        $data['activities'] = $this->ActivityPatient_model->get_activity_answer_all_by_id_patient_report($id);
+        $html=$this->load->view('dp/reports/historyActivityReportView',$data,true);
+        $fileName=$this->fileNameGenerator($id,'Laporan Riwayat Aktifitas');
+        $this->load->library('pdf');
+        $this->pdf->createPDF($html, $fileName);
+    }  
+      
+
     public function detailActivities(){
         $uri = $this->uri->segment(3, 0);
         $delimiter = '.';
@@ -205,6 +228,21 @@ class ViewPatientHistory extends CI_Controller
         $this->load->view('templates_dp/worker/sidebar', $data);
         $this->load->view('dp/view_history_patient_medical_record/index', $data);
         $this->load->view('templates_dp/worker/footer', $data);
+    }
+    public function generateMedicalRecordPdf($id){
+        $data['logo'] = $this->LogoClinic_model->get_logo_clinic_byID(1);
+        $data['data']=$this->Patient_model->get_patient_byID($id);
+        $data['medicalRecord'] = $this->MedicalRecord_model->get_medical_record_by_id_patient($id);
+        $html=$this->load->view('dp/reports/medicalRecordReportView',$data,true);
+         $fileName=$this->fileNameGenerator($id,'Laporan Medical Record');;
+        $this->load->library('pdf');
+        $this->pdf->createPDF($html, $fileName);
+    }   
+
+    public function fileNameGenerator($id, $typeReport){
+        $name_patient = $this->Patient_model->get_patient_byID($id)["name_patient"];
+        $datePrintPdf=date("Y-m-d H:i:s");
+        return "{$typeReport} {$id} {$name_patient} {$datePrintPdf}";
     }
 
      public function detailMedicalRecord(){
