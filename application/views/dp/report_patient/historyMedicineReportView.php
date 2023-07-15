@@ -46,7 +46,7 @@ Kota Surabaya, Jawa Timur 60232,</p></td>
 <div>
     <div id="table">
     <div id="top">  
-       <h6>Laporan Riwayat Aktifitas Pasien<h6>
+       <h6>Laporan Riwayat Obat Yang Dikonsumsi<h6>
     </div>
 </div>
 
@@ -64,13 +64,13 @@ Kota Surabaya, Jawa Timur 60232,</p></td>
     </thead>
     <tbody>
         <?php $i = 1; ?>
-        <?php foreach ($aktifitas as $aktifitas) : ?>
+        <?php foreach ($medicines as $medicines) : ?>
             <tr  class="border">
-                <td class="border"><?= $aktifitas['date_drugs_patient'] ?></td>
-                <td class="border"><?= $aktifitas['id_patient'] ?></td>
-                <td class="border"><?= $aktifitas['name_patient'] ?></td>
-                <td class="border"><?= $aktifitas['drug'] ?></td>
-                <td class="border"><?= $aktifitas['type'] ?></td>
+                <td class="border"><?= $medicines['date_drugs_patient'] ?></td>
+                <td class="border"><?= $medicines['id_patient'] ?></td>
+                <td class="border"><?= $medicines['name_patient'] ?></td>
+                <td class="border"><?= $medicines['drug'] ?></td>
+                <td class="border"><?= $medicines['type'] ?></td>
             </tr>
         <?php $i++; ?>
         <?php endforeach; ?>
