@@ -70,4 +70,21 @@ ORDER BY
         $this->db->update('drug_patient', $data, ['id_drugs_patient' => $id_drugs_patient]);
         return $this->db->affected_rows();
     }
+
+    public function get_drugs_by_id_report_bydate($startDate, $endDate)
+    {
+        return $this->db->query("SELECT 
+	drug_patient.date_drugs_patient,
+	drug_patient.id_patient,
+	patient.name_patient,
+	drug_patient.drug,
+	drug_patient.type
+FROM
+	drug_patient 
+	LEFT JOIN patient ON patient.id_patient = drug_patient.id_patient 
+WHERE
+(drug_patient.date_drugs_patient BETWEEN DATE('".$startDate."') AND DATE('".$endDate."') )
+ORDER BY
+	drug_patient.id_drugs_patient DESC")->result_array();
+    }
 }

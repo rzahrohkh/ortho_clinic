@@ -70,4 +70,27 @@ WHERE
         $this->db->update('medical_record', $data, ['id_medical_record' => $id_medical_record]);
         return $this->db->affected_rows();
     }
+
+    public function get_medical_record_by_id_report_bydate($startDate, $endDate)
+    {
+        return $this->db->query("SELECT
+	medical_record.id_medical_record,
+	patient.name_patient,
+	medical_record.inspection_date,
+	medical_record.diagnosis,
+	medical_record.type_handling,
+	medical_record.status_medical_record,
+	medical_record.handling,
+	medical_record.inspection_fees,
+	USER.NAME 
+FROM
+	medical_record
+	LEFT JOIN USER ON medical_record.modifed_by = USER.id_user 
+	LEFT JOIN patient ON patient.id_patient = medical_record.id_patient 
+WHERE
+medical_record.status_medical_record IN ( 'sudah diperiksa', 'resep belum dibuat', 'resep sudah dibuat' ) 
+AND (inspection_date BETWEEN DATE('".$startDate."') AND DATE('".$endDate."') )
+ORDER BY
+	medical_record.inspection_date DESC")->result_array();
+    }
 }
