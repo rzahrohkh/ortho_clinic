@@ -82,10 +82,10 @@ WHERE
 	medical_record.status_medical_record,
 	medical_record.handling,
 	medical_record.inspection_fees,
-	USER.NAME 
+	user.name NAME
 FROM
 	medical_record
-	LEFT JOIN USER ON medical_record.modifed_by = USER.id_user 
+	LEFT JOIN user ON medical_record.modifed_by = user.id_user 
 	LEFT JOIN patient ON patient.id_patient = medical_record.id_patient 
 WHERE
 medical_record.status_medical_record IN ( 'sudah diperiksa', 'resep belum dibuat', 'resep sudah dibuat' ) 
